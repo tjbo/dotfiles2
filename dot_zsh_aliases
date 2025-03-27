@@ -4,7 +4,7 @@ alias -- ca='chezmoi apply'
 alias -- cdc='cd ~/.local/share/chezmoi/'
 alias -- ez='chezmoi edit ~/.zshrc'
 alias -- eza='chezmoi edit ~/.zsh_aliases'
-alias -- eci='chezmoi edit ~/.local/share/chezmoi/run_once_install-packages.sh'
+alias -- eci='e ~/.local/share/chezmoi/run_once_install-packages.sh'
 
 # default
 alias -- c=clear
