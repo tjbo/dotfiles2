@@ -62,60 +62,9 @@ bindkey -M viins '^H' fzf-history-widget
 bindkey '^ ' autosuggest-accept
 source <(fzf --zsh)
 
-# Aliases
-alias -- bs1='export NIXPKGS_ALLOW_UNFREE=1 && home-manager switch -f ~/dotfiles/macosx/home.nix && reload'
-alias -- bs2='home-manager --file ~/dotfiles/ubuntu/home.nix switch'
-alias -- c=clear
-alias -- cdb='cd ../'
-alias -- cdc='cd ~/.local/share/chezmoi/'
-alias -- cdcl='cd ~/Projects/crescentlenders.com/'
-alias -- cddf='cd ~/dotfiles/dotfiles'
-alias -- cddl='cd ~/Downloads'
-alias -- cddt='cd ~/Desktop'
-alias -- cde='cd ~/Projects/eitherorelse.com'
-alias -- cdma='cd ~/Projects/tq/paperbits-cms/microapps/'
-alias -- cdn='cd ~/dotfiles'
-alias -- cdp='cd ~/Projects/'
-alias -- cdpp='cd ~/Projects/productopia/'
-alias -- cdppf='cd ~/Projects/productopia/functions'
-alias -- cdpr='cd ~/Projects/prototypable.io/'
-alias -- cdta='cd ~/Projects/10adventures-web-front-end'
-alias -- cdtac='cd ~/Projects/10adventures-web-front-end/src/components'
-alias -- cdtatw='cd ~/Projects/10adventures-web-front-end/src/componentstw/'
-alias -- cdtl='cd ~/Projects/timer-labs-app/'
-alias -- cdtla='cd ~/Projects/timer-labs-app/app'
-alias -- cdtld='cd ~/Projects/timer-labs-app/db'
-alias -- cdtlf='cd ~/Projects/timer-labs-app/functions2'
-alias -- cdtlv='cd ~/Projects/timer-labs-app/vpc'
-alias -- cdtlw='cd ~/Projects/timerlabs.com/'
-alias -- cdtq='cd ~/Projects/tq/paperbits-cms/'
-alias -- cdtqb='cd ~/Projects/tq/paperbits-cms/'
-alias -- cdtqc='cd ~/Projects/tq/paperbits-cms/components/'
-alias -- cdtqf='cd ~/Projects/tq/tq-cms-functions'
-alias -- cdv='cd ~/dotfiles/dotfiles/nvim'
-alias -- cdz='cd ~/dotfiles/dotfiles/zsh'
-alias -- e=nvim
-alias -- ek='nvim ~/dotfiles/dotfiles/kitty/kitty.conf'
-alias -- es1='nvim ~/dotfiles/macosx/home.nix'
-alias -- es2='nvim ~/dotfiles/ubuntu/home.nix'
-alias -- ev='nvim ~/dotfiles/dotfiles/nvim/nvim.nix'
-alias -- evs='nvim ~/dotfiles/dotfiles/nvim/settings.lua'
-alias -- ez='nvim ~/dotfiles/dotfiles/zsh/zsh.nix'
-alias -- eza='nvim ~/dotfiles/dotfiles/zsh/zsh-aliases.nix'
-alias -- g=lazygit
-alias -- gs='git status'
-alias -- ls='ls -AGFhol'
-alias -- pi='pod install'
-alias -- reload='source ~/.zshrc'
-alias -- yra='yarn run android'
-alias -- yrb='yarn run build'
-alias -- yrc='yarn run clean'
-alias -- yrd='yarn run develop'
-alias -- yri='yarn run ios'
-alias -- yrr='yarn run rescript'
-alias -- yrs='yarn run start'
-alias -- yrw='yarn run watch'
-
 echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
