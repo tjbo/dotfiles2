@@ -1,5 +1,9 @@
 typeset -U path cdpath fpath manpath
 
+# might not need this, it is for pure-prompt
+# fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
+
 CASE_SENSITIVE=true
 EDITOR="nvim"
 FZF_DEFAULT_OPTS="--height 100% --border"
@@ -66,3 +70,4 @@ echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlight
 
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
+neofetch

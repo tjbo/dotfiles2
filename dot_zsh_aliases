@@ -1,3 +1,5 @@
+alias -- bs1='export NIXPKGS_ALLOW_UNFREE=1 && home-manager switch -f ~/dotfiles/macosx/home.nix && reload'
+
 
 # chezmoi
 alias -- ca='chezmoi apply'
