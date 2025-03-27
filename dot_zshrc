@@ -1,0 +1,121 @@
+typeset -U path cdpath fpath manpath
+
+CASE_SENSITIVE=true
+EDITOR="nvim"
+FZF_DEFAULT_OPTS="--height 100% --border"
+GIT_EDITOR="nvim"
+KEY_TIMEOUT="1"
+PURE_PROMPT_SYMBOL="=>"
+RPROMPT=""
+VISUAL="nvim"
+
+autoload -U compinit && compinit
+
+HISTSIZE="1000"
+SAVEHIST="1000"
+HISTORY_IGNORE='(rm *|pkill *)'
+HISTFILE="$HOME/.zsh_history"
+mkdir -p "$(dirname "$HISTFILE")"
+
+setopt HIST_FCNTL_LOCK
+setopt HIST_IGNORE_DUPS
+unsetopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt SHARE_HISTORY
+unsetopt EXTENDED_HISTORY
+
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules
+export NODE_OPTIONS="--openssl-legacy-provider"
+export ANDROID_HOME=/Users/tjbo/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+unsetopt beep
+
+# pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+
+# open command line text in vim
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'vv' edit-command-line
+
+# zsh plugins
+# source /nix/store/b4ynp31zai0fx08sb184frhjpbw26p07-zsh-vi-mode-0.11.0/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source /nix/store/kx3zw51y8hznnkxmbivvrhmnj96p6sd4-zsh-autosuggestions-0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /nix/store/hlj5a9dk1k8r4j9lry5z7hsayb3hbm27-zsh-syntax-highlighting-0.8.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /nix/store/7flbcf7cpjz2hypfdhansk4h38ik0x5z-fzf-0.55.0/share/fzf/key-bindings.zsh
+
+# bind to fzf history search
+export FZF_DEFAULT_OPTS="--border=rounded --no-scrollbar --no-color --no-separator --no-info"
+
+bindkey -M emacs '^H' fzf-history-widget
+bindkey -M vicmd '^H' fzf-history-widget
+bindkey -M viins '^H' fzf-history-widget
+
+# bind to auto suggest
+bindkey '^ ' autosuggest-accept
+source <(fzf --zsh)
+
+# Aliases
+alias -- bs1='export NIXPKGS_ALLOW_UNFREE=1 && home-manager switch -f ~/dotfiles/macosx/home.nix && reload'
+alias -- bs2='home-manager --file ~/dotfiles/ubuntu/home.nix switch'
+alias -- c=clear
+alias -- cdb='cd ../'
+alias -- cdc='cd ~/.local/share/chezmoi/'
+alias -- cdcl='cd ~/Projects/crescentlenders.com/'
+alias -- cddf='cd ~/dotfiles/dotfiles'
+alias -- cddl='cd ~/Downloads'
+alias -- cddt='cd ~/Desktop'
+alias -- cde='cd ~/Projects/eitherorelse.com'
+alias -- cdma='cd ~/Projects/tq/paperbits-cms/microapps/'
+alias -- cdn='cd ~/dotfiles'
+alias -- cdp='cd ~/Projects/'
+alias -- cdpp='cd ~/Projects/productopia/'
+alias -- cdppf='cd ~/Projects/productopia/functions'
+alias -- cdpr='cd ~/Projects/prototypable.io/'
+alias -- cdta='cd ~/Projects/10adventures-web-front-end'
+alias -- cdtac='cd ~/Projects/10adventures-web-front-end/src/components'
+alias -- cdtatw='cd ~/Projects/10adventures-web-front-end/src/componentstw/'
+alias -- cdtl='cd ~/Projects/timer-labs-app/'
+alias -- cdtla='cd ~/Projects/timer-labs-app/app'
+alias -- cdtld='cd ~/Projects/timer-labs-app/db'
+alias -- cdtlf='cd ~/Projects/timer-labs-app/functions2'
+alias -- cdtlv='cd ~/Projects/timer-labs-app/vpc'
+alias -- cdtlw='cd ~/Projects/timerlabs.com/'
+alias -- cdtq='cd ~/Projects/tq/paperbits-cms/'
+alias -- cdtqb='cd ~/Projects/tq/paperbits-cms/'
+alias -- cdtqc='cd ~/Projects/tq/paperbits-cms/components/'
+alias -- cdtqf='cd ~/Projects/tq/tq-cms-functions'
+alias -- cdv='cd ~/dotfiles/dotfiles/nvim'
+alias -- cdz='cd ~/dotfiles/dotfiles/zsh'
+alias -- e=nvim
+alias -- ek='nvim ~/dotfiles/dotfiles/kitty/kitty.conf'
+alias -- es1='nvim ~/dotfiles/macosx/home.nix'
+alias -- es2='nvim ~/dotfiles/ubuntu/home.nix'
+alias -- ev='nvim ~/dotfiles/dotfiles/nvim/nvim.nix'
+alias -- evs='nvim ~/dotfiles/dotfiles/nvim/settings.lua'
+alias -- ez='nvim ~/dotfiles/dotfiles/zsh/zsh.nix'
+alias -- eza='nvim ~/dotfiles/dotfiles/zsh/zsh-aliases.nix'
+alias -- g=lazygit
+alias -- gs='git status'
+alias -- ls='ls -AGFhol'
+alias -- pi='pod install'
+alias -- reload='source ~/.zshrc'
+alias -- yra='yarn run android'
+alias -- yrb='yarn run build'
+alias -- yrc='yarn run clean'
+alias -- yrd='yarn run develop'
+alias -- yri='yarn run ios'
+alias -- yrr='yarn run rescript'
+alias -- yrs='yarn run start'
+alias -- yrw='yarn run watch'
+
+echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
