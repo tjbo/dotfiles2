@@ -341,66 +341,79 @@ require("lazy").setup({
 
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		options = {
-			icons_enabled = true,
-			component_separators = { left = "", right = "" },
-			section_separators = { left = "", right = "" },
-			disabled_filetypes = {
-				statusline = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for icons
+		config = function()
+			require("lualine").setup({
+
+				options = {
+					icons_enabled = true,
+					component_separators = { left = "", right = "" },
+					section_separators = { left = "", right = "" },
+					disabled_filetypes = {
+						statusline = {},
+						winbar = {},
+					},
+					ignore_focus = {},
+					always_divide_middle = true,
+					globalstatus = false,
+					refresh = {
+						statusline = 1000,
+						tabline = 1000,
+						winbar = 1000,
+					},
+				},
+				sections = {
+					lualine_a = { "mode" },
+					lualine_b = { "branch" },
+					lualine_c = {
+						{
+							"filename",
+							file_status = true, -- Displays file status (readonly status, modified status)
+							newfile_status = true, -- Display new file status (new file means no write after created)
+							path = 3,
+						},
+					},
+					lualine_x = {
+						{
+							require("noice").api.statusline.mode.get,
+							cond = require("noice").api.statusline.mode.has,
+							color = { fg = "#ff9e64" },
+						},
+						"encoding",
+						{
+							"filetype",
+							colored = true, -- Displays filetype icon in color if set to true
+							icon_only = false, -- Display only an icon for filetype
+							icon = { align = "right" }, -- Display filetype icon on the right hand side
+						},
+					},
+					lualine_y = { "progress" },
+					lualine_z = { "location" },
+				},
+				inactive_sections = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_y = {},
+					lualine_z = {},
+				},
 				winbar = {},
-			},
-			ignore_focus = {},
-			always_divide_middle = true,
-			globalstatus = false,
-			refresh = {
-				statusline = 1000,
-				tabline = 1000,
-				winbar = 1000,
-			},
-		},
-		sections = {
-			lualine_a = { "mode" },
-			lualine_b = { "branch" },
-			lualine_c = {
-				{
-					"filename",
-					file_status = true, -- Displays file status (readonly status, modified status)
-					newfile_status = true, -- Display new file status (new file means no write after created)
-					path = 3,
-				},
-			},
-			lualine_x = {
-				{
-					require("noice").api.statusline.mode.get,
-					cond = require("noice").api.statusline.mode.has,
-					color = { fg = "#ff9e64" },
-				},
-				"encoding",
-				{
-					"filetype",
-					colored = true, -- Displays filetype icon in color if set to true
-					icon_only = false, -- Display only an icon for filetype
-					icon = { align = "right" }, -- Display filetype icon on the right hand side
-				},
-			},
-			lualine_y = { "progress" },
-			lualine_z = { "location" },
-		},
-		inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
-			lualine_y = {},
-			lualine_z = {},
-		},
-		winbar = {},
-		inactive_winbar = {},
-		extensions = {},
+				inactive_winbar = {},
+				extensions = {},
+			})
+		end,
 	},
 
 	{
 		"nvim-tree/nvim-web-devicons",
 	},
+
+	{
+		"akinsho/git-conflict.nvim",
+		default_mappings = true, -- disable buffer local mapping created by this plugin
+		default_commands = true, -- disable commands created by this plugin
+		disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+	},
+
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -979,6 +992,19 @@ require("lazy").setup({
 
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
+		enabled = function()
+			if vim.bo.buftype == "prompt" then
+				return false
+			elseif vim.bo.ft == "markdown" then
+				return false
+			elseif vim.api.nvim_get_mode().mode == "c" then
+				return true
+			else
+				local context = require("cmp.config.context")
+				-- keep command mode completion enabled when cursor is in a comment
+				return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+			end
+		end,
 		event = "InsertEnter",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
@@ -1015,6 +1041,12 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function()
+			local has_words_before = function()
+				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+				return col ~= 0
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+			end
+
 			-- See `:help cmp`
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
@@ -1034,63 +1066,42 @@ require("lazy").setup({
 				-- No, but seriously. Please read `:help ins-completion`, it is really good!
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
-					["<C-n>"] = cmp.mapping.select_next_item(),
-					-- Select the [p]revious item
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-
-					-- Scroll the documentation window [b]ack / [f]orward
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-
-					-- Accept ([y]es) the completion.
-					--  This will auto-import if your LSP supports it.
-					--  This will expand snippets if the LSP sent a snippet.
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
-
-					-- If you prefer more traditional completion keymaps,
-					-- you can uncomment the following lines
-					--['<CR>'] = cmp.mapping.confirm { select = true },
-					--['<Tab>'] = cmp.mapping.select_next_item(),
-					--['<S-Tab>'] = cmp.mapping.select_prev_item(),
-
-					-- Manually trigger a completion from nvim-cmp.
-					--  Generally you don't need this, because nvim-cmp will display
-					--  completions whenever it has completion options available.
-					["<C-Space>"] = cmp.mapping.complete({}),
-
-					-- Think of <c-l> as moving to the right of your snippet expansion.
-					--  So if you have a snippet that's like:
-					--  function $name($args)
-					--    $body
-					--  end
-					--
-					-- <c-l> will move you to the right of each of the expansion locations.
-					-- <c-h> is similar, except moving you backwards.
-					["<C-l>"] = cmp.mapping(function()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						end
-					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
+					["<C-u>"] = cmp.mapping.scroll_docs(-2),
+					["<C-d>"] = cmp.mapping.scroll_docs(2),
+					["<C-c>"] = cmp.mapping.abort(),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-j>"] = cmp.mapping.select_next_item(),
+					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							if #cmp.get_entries() == 1 then
+								cmp.confirm({ select = true })
+							else
+								cmp.select_next_item()
+							end
+						elseif has_words_before() then
+							cmp.complete()
+							if #cmp.get_entries() == 1 then
+								cmp.confirm({ select = true })
+							end
+						else
+							fallback()
 						end
 					end, { "i", "s" }),
 
 					-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 					--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 				}),
-				sources = {
-					{
-						name = "lazydev",
-						-- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-						group_index = 0,
-					},
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
-					{ name = "nvim_lsp_signature_help" },
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
 				},
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp", keyword_length = 2 },
+					{ name = "vsnip", keyword_length = 4 },
+					{ name = "buffer", keyword_length = 4 },
+					{ name = "path", keyword_length = 2 },
+				}),
 			})
 		end,
 	},
