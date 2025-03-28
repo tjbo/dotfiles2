@@ -1,8 +1,11 @@
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules
+export NODE_OPTIONS="--openssl-legacy-provider"
 typeset -U path cdpath fpath manpath
 
-# might not need this, it is for pure-prompt
-# fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
+# this for some reason loads zsh 
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 CASE_SENSITIVE=true
 EDITOR="nvim"
@@ -30,13 +33,6 @@ setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH=~/.npm-packages/bin:$PATH
-export NODE_PATH=~/.npm-packages/lib/node_modules
-export NODE_OPTIONS="--openssl-legacy-provider"
-export ANDROID_HOME=/Users/tjbo/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 unsetopt beep
 

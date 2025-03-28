@@ -1,14 +1,18 @@
-alias -- bs1='export NIXPKGS_ALLOW_UNFREE=1 && home-manager switch -f ~/dotfiles/macosx/home.nix && reload'
-
+# general
+alias -- g=lazygit
+alias -- gs='git status'
+alias -- ls='ls -AGFhol'
+alias -- reload='source ~/.zshrc'
 
 # chezmoi
 alias -- ca='chezmoi apply'
 alias -- cdc='cd ~/.config/'
-alias -- cdchez='cd ~/.local/share/chezmoi/'
+alias -- cddf='cd ~/.local/share/chezmoi/'
+alias -- ei='e ~/.local/share/chezmoi/run_once_install-packages.sh'
+alias -- ek='nvim ~/.config/kitty/kitty.conf'
+alias -- ev=' chezmoi edit ~/.config/nvim/init.lua'
 alias -- ez='chezmoi edit ~/.zshrc'
 alias -- eza='chezmoi edit ~/.zsh_aliases'
-alias -- eci='e ~/.local/share/chezmoi/run_once_install-packages.sh'
-alias -- ev=' chezmoi edit ~/.config/nvim/init.lua'
 
 # nvim
 alias -- e=nvim
@@ -16,7 +20,6 @@ alias -- e=nvim
 # default
 alias -- c=clear
 alias -- cdb='cd ../'
-alias -- cddf='cd ~/dotfiles/dotfiles'
 alias -- cddl='cd ~/Downloads'
 alias -- cddt='cd ~/Desktop'
 alias -- cde='cd ~/Projects/eitherorelse.com'
@@ -26,9 +29,6 @@ alias -- cdp='cd ~/Projects/'
 alias -- cdpp='cd ~/Projects/productopia/'
 alias -- cdppf='cd ~/Projects/productopia/functions'
 alias -- cdpr='cd ~/Projects/prototypable.io/'
-alias -- cdta='cd ~/Projects/10adventures-web-front-end'
-alias -- cdtac='cd ~/Projects/10adventures-web-front-end/src/components'
-alias -- cdtatw='cd ~/Projects/10adventures-web-front-end/src/componentstw/'
 alias -- cdtl='cd ~/Projects/timer-labs-app/'
 alias -- cdtla='cd ~/Projects/timer-labs-app/app'
 alias -- cdtld='cd ~/Projects/timer-labs-app/db'
@@ -39,27 +39,10 @@ alias -- cdtq='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqb='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqc='cd ~/Projects/tq/paperbits-cms/components/'
 alias -- cdtqf='cd ~/Projects/tq/tq-cms-functions'
-alias -- cdv='cd ~/dotfiles/dotfiles/nvim'
-alias -- cdz='cd ~/dotfiles/dotfiles/zsh'
-alias -- ek='nvim ~/dotfiles/dotfiles/kitty/kitty.conf'
-alias -- es1='nvim ~/dotfiles/macosx/home.nix'
-alias -- es2='nvim ~/dotfiles/ubuntu/home.nix'
-alias -- evs='nvim ~/dotfiles/dotfiles/nvim/settings.lua'
-alias -- g=lazygit
-alias -- gs='git status'
-alias -- ls='ls -AGFhol'
-alias -- pi='pod install'
-alias -- reload='source ~/.zshrc'
 
 # yarn
-alias -- yra='yarn run android'
 alias -- yrb='yarn run build'
 alias -- yrc='yarn run clean'
 alias -- yrd='yarn run develop'
-alias -- yri='yarn run ios'
-alias -- yrr='yarn run rescript'
 alias -- yrs='yarn run start'
 alias -- yrw='yarn run watch'
-
-
-
