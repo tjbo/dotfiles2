@@ -8,6 +8,7 @@ alias -- cdchez='cd ~/.local/share/chezmoi/'
 alias -- ez='chezmoi edit ~/.zshrc'
 alias -- eza='chezmoi edit ~/.zsh_aliases'
 alias -- eci='e ~/.local/share/chezmoi/run_once_install-packages.sh'
+alias -- ev=' chezmoi edit ~/.config/nvim/init.lua'
 
 # nvim
 alias -- e=nvim
@@ -43,7 +44,6 @@ alias -- cdz='cd ~/dotfiles/dotfiles/zsh'
 alias -- ek='nvim ~/dotfiles/dotfiles/kitty/kitty.conf'
 alias -- es1='nvim ~/dotfiles/macosx/home.nix'
 alias -- es2='nvim ~/dotfiles/ubuntu/home.nix'
-alias -- ev='nvim ~/dotfiles/dotfiles/nvim/nvim.nix'
 alias -- evs='nvim ~/dotfiles/dotfiles/nvim/settings.lua'
 alias -- g=lazygit
 alias -- gs='git status'
