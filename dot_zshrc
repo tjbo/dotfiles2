@@ -70,4 +70,3 @@ echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlight
 
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
-neofetch
