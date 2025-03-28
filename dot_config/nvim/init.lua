@@ -18,11 +18,95 @@ vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
+vim.opt.re = 1
+
+-- search
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+-- colors
+vim.opt.termguicolors = true
+
+vim.opt.laststatus = 3
+
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.textwidth = 80
+vim.opt.wrap = true
+
+vim.opt.wildmode = { "list:longest,full" }
+
+-- allows persistent undos
+vim.opt.undodir = "/tmp/nvim_undos"
+vim.opt.undofile = true
+
+-- backups config
+vim.opt.backupdir = "/tmp/nvim_backups"
+vim.opt.backup = true
+
+-- Add timestamp as extension for backup files
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = vim.api.nvim_create_augroup("timestamp_backupext", { clear = true }),
+	desc = "Add timestamp to backup extension",
+	pattern = "*",
+	callback = function()
+		vim.opt.backupext = "-" .. vim.fn.strftime("%Y%m%d%H%M")
+	end,
+})
+
 -- turn off auto comment insertion
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
 		vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
 	end,
+})
+
+-- Map keys function
+function map(mode, lhs, rhs, opts)
+	local options = { noremap = true }
+
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- clears the search highlight
+map("n", "<C-L>", ":nohlsearch<cr><C-L>")
+
+-- Keeps selection when indenting in visual mode
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- Allows <ctrl+v> to paste from system clipboard
+map("i", "<c-v>", "<c-r>+")
+map("n", "<leader>/", "<cmd>WhichKey<cr>")
+map("n", "<PageUp>", "<C-b>")
+
+local function show_notification(message, level)
+	local notify = require("notify")
+	notify(message, level, { title = "conform.nvim" })
+end
+
+vim.api.nvim_create_user_command("FormatToggle", function(args)
+	local is_global = not args.bang
+	if is_global then
+		vim.g.disable_autoformat = not vim.g.disable_autoformat
+		if vim.g.disable_autoformat then
+			show_notification("Autoformat-on-save disabled globally", "info")
+		else
+			show_notification("Autoformat-on-save enabled globally", "info")
+		end
+	else
+		vim.b.disable_autoformat = not vim.b.disable_autoformat
+		if vim.b.disable_autoformat then
+			show_notification("Autoformat-on-save disabled for this buffer", "info")
+		else
+			show_notification("Autoformat-on-save enabled for this buffer", "info")
+		end
+	end
+end, {
+	desc = "Toggle autoformat-on-save",
+	bang = true,
 })
 
 -- Sync clipboard between OS and Neovim.
@@ -154,7 +238,76 @@ vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			cmdline = {
+				enabled = true,
+				view = "cmdline_popup",
+			},
+			lsp = {
+				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				},
+			},
+			-- you can enable a preset for easier configuration
+			presets = {
+				bottom_search = true, -- use a classic bottom cmdline for search
+				command_palette = false, -- position the cmdline and popupmenu together
+				long_message_to_split = true, -- long messages will be sent to a split
+				inc_rename = false, -- enables an input dialog for inc-rename.nvim
+				lsp_doc_border = false, -- add a border to hover docs and signature help
+			},
+			views = {
+				cmdline_popup = {
+					position = {
+						row = 10,
+						col = "50%",
+					},
+					size = {
+						width = 60,
+						height = "auto",
+					},
+				},
+				popupmenu = {
+					enabled = true,
+					backend = "nui",
+					relative = "editor",
+					position = {
+						row = 13,
+						col = "50%",
+					},
+					size = {
+						width = 60,
+						height = 20,
+					},
+					border = {
+						style = "rounded",
+						padding = { 0, 1 },
+					},
+					win_options = {
+						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+					},
+				},
+			},
 
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			-- "MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
+
+	{ "rcarriga/nvim-notify", stages = "fade" },
 	{
 		"stevearc/oil.nvim",
 
@@ -441,6 +594,7 @@ require("lazy").setup({
 			-- [[ Configure Telescope ]]
 			-- See `:help telescope` and `:help telescope.setup()`
 			local actions = require("telescope.actions")
+
 			local ta = {
 				["<C-o>"] = function(p_bufnr)
 					require("telescope.actions").send_selected_to_qflist(p_bufnr)
@@ -487,30 +641,7 @@ require("lazy").setup({
 
 			-- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
-			-- pcall(require("telescope").load_extension, "ui-select")
-
-			-- Slightly advanced example of overriding default behavior and theme
-			vim.keymap.set("n", "<leader>/", function()
-				-- You can pass additional configuration to Telescope to change the theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
-			end, { desc = "[/] Fuzzily search in current buffer" })
-
-			-- It's also possible to pass additional configuration options.
-			--  See `:help telescope.builtin.live_grep()` for information about particular keys
-			vim.keymap.set("n", "<leader>s/", function()
-				builtin.live_grep({
-					grep_open_files = true,
-					prompt_title = "Live Grep in Open Files",
-				})
-			end, { desc = "[S]earch [/] in Open Files" })
-
-			-- Shortcut for searching your Neovim configuration files
-			vim.keymap.set("n", "<leader>sn", function()
-				builtin.find_files({ cwd = vim.fn.stdpath("config") })
-			end, { desc = "[S]earch [N]eovim files" })
+			pcall(require("telescope").load_extension, "ui-select")
 		end,
 	},
 
@@ -1011,21 +1142,33 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
+			require("mini.comment").setup({
+				mappings = {
+					-- Normal and Visual modes
+					comment = "gc",
+					-- Toggle comment on current line
+					comment_line = "gcc",
+					-- Toggle comment on visual selection
+					comment_visual = "gc",
+					-- Define 'comment' textobject (like `dgc` - delete whole comment block)
+					textobject = "gc",
+				},
+			})
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
-			local statusline = require("mini.statusline")
+			-- local statusline = require("mini.statusline")
 			-- set use_icons to true if you have a Nerd Font
-			statusline.setup({ use_icons = vim.g.have_nerd_font })
+			-- statusline.setup({ use_icons = vim.g.have_nerd_font })
 
 			-- You can configure sections in the statusline by overriding their
 			-- default behavior. For example, here we set the section for
 			-- cursor location to LINE:COLUMN
-			---@diagnostic disable-next-line: duplicate-set-field
-			statusline.section_location = function()
-				return "%2l:%-2v"
-			end
+			-- -@diagnostic disable-next-line: duplicate-set-field
+			-- statusline.section_location = function()
+			-- return "%2l:%-2v"
+			-- end
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
