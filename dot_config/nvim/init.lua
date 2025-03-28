@@ -286,6 +286,7 @@ require("lazy").setup({
 		config = function()
 			require("lualine").setup({
 				options = {
+					theme = "auto",
 					icons_enabled = true,
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
@@ -363,7 +364,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	{ -- Useful plugin to show you pending keybinds.
+	{ -- useful plugin to show you pending keybinds
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		opts = {
@@ -586,8 +587,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- LSP Plugins
-
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
@@ -601,7 +600,7 @@ require("lazy").setup({
 		},
 	},
 	{
-		-- Main LSP Configuration
+		-- main LSP Configuration
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
@@ -766,7 +765,6 @@ require("lazy").setup({
 				end,
 			})
 
-			-- Diagnostic Config
 			-- See :help vim.diagnostic.Opts
 			vim.diagnostic.config({
 				severity_sort = true,
@@ -877,7 +875,7 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Autoformat
+	{ -- autoformat
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
@@ -910,17 +908,11 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				json = { "prettier" },
-
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
 
-	{ -- Autocompletion
+	{ -- autocompletion
 		"hrsh7th/nvim-cmp",
 		enabled = function()
 			if vim.bo.buftype == "prompt" then
@@ -1034,23 +1026,8 @@ require("lazy").setup({
 			vim.cmd("colorscheme cyberdream")
 		end,
 	},
-
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	priority = 1000, -- Make sure to load this before all the other start plugins.
-	-- 	config = function()
-	-- 		---@diagnostic disable-next-line: missing-fields
-	-- 		require("tokyonight").setup({
-	-- 			styles = {
-	-- 				comments = { italic = false }, -- Disable italics in comments
-	-- 			},
-	-- 		})
-	-- 		'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-	-- 		vim.cmd.colorscheme("tokyonight-night")
-	-- 	end,
-	-- },
-
-	{ -- Collection of various small independent plugins/modules
+	{
+		-- collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
 			-- Better Around/Inside textobjects
@@ -1118,7 +1095,7 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Highlight, edit, and navigate code
+	{ -- highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
