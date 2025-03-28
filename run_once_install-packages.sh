@@ -15,4 +15,3 @@ brew install --cask font-hack
 brew install neofetch
 brew install lazygit
 brew install karabiner-elements
-brew tap homebrew/cask-fonts

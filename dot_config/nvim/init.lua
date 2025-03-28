@@ -1,11 +1,10 @@
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
+
+vim.g.loaded_netrwPlugin = 0
 
 -- Make line numbers default
 vim.opt.number = true
@@ -18,6 +17,13 @@ vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+
+-- turn off auto comment insertion
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+		vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+	end,
+})
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -38,7 +44,18 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:1"
+
+-- we back up so don't need swap
+vim.opt.swapfile = false
+
+-- default splits to vertical
+vim.opt.diffopt:append({ "vertical" })
+
+-- open help windows vertically
+vim.cmd([[autocmd FileType help wincmd L]])
+
+vim.opt.history = 999
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -63,7 +80,8 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 999
+vim.opt.cursorline = true
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -136,6 +154,37 @@ vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
+
+	{
+		"stevearc/oil.nvim",
+
+		default_file_explorer = false,
+		constrain_cursor = "name",
+		prompt_save_on_select_new_entry = true,
+		view_options = {
+			hidden = true,
+			is_hidden_file = function(name, bufnr)
+				return vim.startswith(name, ".")
+			end,
+		},
+		keymaps = {
+			["<C-?>"] = "actions.show_help",
+			["f"] = "actions.select",
+			["e"] = "actions.select",
+			["<CR>"] = "actions.select",
+			["<C-t>"] = "actions.select_tab",
+			["<C-p>"] = "actions.preview",
+			["<C-c>"] = "actions.close",
+			["<C-l>"] = "actions.refresh",
+			["b"] = "actions.parent",
+			["_"] = "actions.open_cwd",
+			["`"] = "actions.cd",
+			["~"] = "actions.tcd",
+			["<C-s>"] = "actions.change_sort",
+			["<C-.>"] = "actions.toggle_hidden",
+		},
+		use_default_keymaps = false,
+	},
 
 	{
 		"nvim-lualine/lualine.nvim",
@@ -275,8 +324,6 @@ require("lazy").setup({
 					F12 = "<F12>",
 				},
 			},
-
-			-- Document existing key chains
 			spec = {
 				{ "<leader><leader>", "<Cmd>BufferLinePick<cr>", desc = "Pick Buffer" },
 				{ "<leader>b", group = "Bufferline" },
