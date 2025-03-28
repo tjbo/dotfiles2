@@ -1,23 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
-
+vim.g.have_nerd_font = true
 vim.g.loaded_netrwPlugin = 0
-
--- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
-
--- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
-
 vim.opt.re = 1
 
 -- search
@@ -28,7 +15,6 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.laststatus = 3
-
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.textwidth = 80
 vim.opt.wrap = true
@@ -43,7 +29,7 @@ vim.opt.undofile = true
 vim.opt.backupdir = "/tmp/nvim_backups"
 vim.opt.backup = true
 
--- Add timestamp as extension for backup files
+-- add timestamp as extension for backup files
 vim.api.nvim_create_autocmd("BufWritePre", {
 	group = vim.api.nvim_create_augroup("timestamp_backupext", { clear = true }),
 	desc = "Add timestamp to backup extension",
@@ -60,7 +46,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
--- Map keys function
+-- map keys function
 function map(mode, lhs, rhs, opts)
 	local options = { noremap = true }
 
@@ -73,11 +59,11 @@ end
 -- clears the search highlight
 map("n", "<C-L>", ":nohlsearch<cr><C-L>")
 
--- Keeps selection when indenting in visual mode
+-- keeps selection when indenting in visual mode
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- Allows <ctrl+v> to paste from system clipboard
+-- allows <ctrl+v> to paste from system clipboard
 map("i", "<c-v>", "<c-r>+")
 map("n", "<leader>/", "<cmd>WhichKey<cr>")
 map("n", "<PageUp>", "<C-b>")
@@ -87,6 +73,7 @@ local function show_notification(message, level)
 	notify(message, level, { title = "conform.nvim" })
 end
 
+-- command to toggle formatting when not needed
 vim.api.nvim_create_user_command("FormatToggle", function(args)
 	local is_global = not args.bang
 	if is_global then
@@ -109,25 +96,23 @@ end, {
 	bang = true,
 })
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+-- sync clipboard between os and nvim
+-- schedule the setting after `UiEnter` because it can increase startup-time
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
 
--- Enable break indent
+-- enable break indent
 vim.opt.breakindent = true
 
--- Save undo history
+-- save undo history
 vim.opt.undofile = true
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
+-- keep signcolumn on by default
 vim.opt.signcolumn = "yes:1"
 
 -- we back up so don't need swap
@@ -141,26 +126,23 @@ vim.cmd([[autocmd FileType help wincmd L]])
 
 vim.opt.history = 999
 
--- Decrease update time
+-- decrease update time
 vim.opt.updatetime = 250
 
--- Decrease mapped sequence wait time
+-- decrease mapped sequence wait time
 vim.opt.timeoutlen = 300
 
--- Configure how new splits should be opened
+-- configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- sets how neovim will display certain whitespace characters in the editor.
+vim.opt.list = false
 
--- Preview substitutions live, as you type!
+-- preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
--- Show which line your cursor is on
+-- show which line your cursor is on
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
@@ -169,53 +151,21 @@ vim.opt.cursorline = true
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
--- See `:help 'confirm'`
 vim.opt.confirm = true
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
+-- clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Diagnostic keymaps
+-- diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
+-- keybinds to make split navigation easier.
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- NOTE: Some terminals have coliding keymaps or are not able to send distinct keycodes
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
-
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
+-- highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
@@ -224,8 +174,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+-- install `lazy.nvim` plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -236,9 +185,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- NOTE: Here is where you install your plugins.
+-- plugins
 require("lazy").setup({
+	{ "nvim-tree/nvim-web-devicons" },
 	{ "farmergreg/vim-lastplace" },
+	{ "rcarriga/nvim-notify", stages = "fade" },
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -257,8 +208,8 @@ require("lazy").setup({
 			},
 			-- you can enable a preset for easier configuration
 			presets = {
-				bottom_search = true, -- use a classic bottom cmdline for search
-				command_palette = false, -- position the cmdline and popupmenu together
+				bottom_search = false, -- use a classic bottom cmdline for search
+				command_palette = true, -- position the cmdline and popupmenu together
 				long_message_to_split = true, -- long messages will be sent to a split
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
@@ -295,29 +246,19 @@ require("lazy").setup({
 					},
 				},
 			},
-
-			-- add any options here
 		},
 		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			-- "MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
 	},
-
-	{ "rcarriga/nvim-notify", stages = "fade" },
 	{
 		"stevearc/oil.nvim",
-
 		default_file_explorer = false,
 		constrain_cursor = "name",
 		prompt_save_on_select_new_entry = true,
 		view_options = {
 			hidden = true,
-			is_hidden_file = function(name, bufnr)
+			is_hidden_file = function(name)
 				return vim.startswith(name, ".")
 			end,
 		},
@@ -339,13 +280,11 @@ require("lazy").setup({
 		},
 		use_default_keymaps = false,
 	},
-
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for icons
 		config = function()
 			require("lualine").setup({
-
 				options = {
 					icons_enabled = true,
 					component_separators = { left = "", right = "" },
@@ -369,8 +308,8 @@ require("lazy").setup({
 					lualine_c = {
 						{
 							"filename",
-							file_status = true, -- Displays file status (readonly status, modified status)
-							newfile_status = true, -- Display new file status (new file means no write after created)
+							file_status = true, -- displays file status (readonly status, modified status)
+							newfile_status = true, -- display new file status (new file means no write after created)
 							path = 3,
 						},
 					},
@@ -383,9 +322,9 @@ require("lazy").setup({
 						"encoding",
 						{
 							"filetype",
-							colored = true, -- Displays filetype icon in color if set to true
-							icon_only = false, -- Display only an icon for filetype
-							icon = { align = "right" }, -- Display filetype icon on the right hand side
+							colored = true, -- displays filetype icon in color if set to true
+							icon_only = false, -- display only an icon for filetype
+							icon = { align = "right" }, -- display filetype icon on the right hand side
 						},
 					},
 					lualine_y = { "progress" },
@@ -402,10 +341,6 @@ require("lazy").setup({
 				extensions = {},
 			})
 		end,
-	},
-
-	{
-		"nvim-tree/nvim-web-devicons",
 	},
 
 	{
