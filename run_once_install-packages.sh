@@ -18,3 +18,4 @@ brew install neofetch
 brew install lazygit
 brew install ripgrep
 brew install karabiner-elements
+brew install prettier

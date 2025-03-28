@@ -8,11 +8,11 @@ alias -- reload='source ~/.zshrc'
 alias -- ca='chezmoi apply'
 alias -- cdc='cd ~/.config/'
 alias -- cddf='cd ~/.local/share/chezmoi/'
-alias -- ei='e ~/.local/share/chezmoi/run_once_install-packages.sh'
-alias -- ek='nvim ~/.config/kitty/kitty.conf'
-alias -- ev=' chezmoi edit ~/.config/nvim/init.lua'
-alias -- ez='chezmoi edit ~/.zshrc'
-alias -- eza='chezmoi edit ~/.zsh_aliases'
+alias -- ei='nvim ~/.local/share/chezmoi/run_once_install-packages.sh'
+alias -- ek='nvim ~/.local/share/chezmoi/dot_config/kitty/kitty.conf'
+alias -- ev='nvim ~/.local/share/chezmoi/dot_config/nvim/init.lua'
+alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
+alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
 
 # nvim
 alias -- e=nvim

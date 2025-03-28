@@ -544,7 +544,12 @@ require("lazy").setup({
 				},
 				{ "<leader>tg", "<cmd>lua require('telescope.builtin').git_status()<cr>", desc = "Show git files" },
 				{ "<leader>th", "<cmd>lua require('telescope.builtin').search_history()<cr>", desc = "Search History" },
-				{ "<leader>tj", "<cmd>lua require('telescope.builtin').jumplist()<cr>", desc = "Jump List" },
+				{
+					"<leader>tj",
+					"<cmd>Telescope jsonfly<cr>",
+					desc = "Open json(fly)",
+					mode = "n",
+				},
 				{ "<leader>tm", "<cmd>lua require('telescope.builtin').marks()<cr>", desc = "Marks" },
 				{ "<leader>tn", "<cmd>Telescope noice<cr>", desc = "Show Notification History" },
 				{ "<leader>to", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", desc = "Recent Files" },
@@ -560,6 +565,7 @@ require("lazy").setup({
 			},
 		},
 	},
+
 	{ -- If encountering errors, see telescope-fzf-native README for installation instructions
 		"nvim-telescope/telescope-fzf-native.nvim",
 
@@ -580,8 +586,8 @@ require("lazy").setup({
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			-- Useful for getting pretty icons, but requires a Nerd Font.
-			-- { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			"Myzel394/jsonfly.nvim",
+			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			local actions = require("telescope.actions")
@@ -968,6 +974,8 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				json = { "prettier" },
+
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
