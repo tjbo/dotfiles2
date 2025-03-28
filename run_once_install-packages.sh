@@ -13,3 +13,4 @@ brew install --cask spotify
 brew install httpie
 brew install --cask font-hack
 brew install neofetch
+brew install lazygit

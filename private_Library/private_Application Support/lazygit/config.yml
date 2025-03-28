@@ -1,0 +1,26 @@
+gui:
+  showIcons: false 
+  sidePanelWidth: 0.25
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - '#efefef' 
+  showBottomLine: false
+  showRandomTip: false
+  showFileTree: false
+git:
+  paging: 
+    colorArg: always
+    pager: delta --dark --paging=never --line-numbers --navigate
+promptToReturnFromSubprocess: false
+showCommandLog: false
+os:
+  openCommand: 'nvim -d {{filename}}'
+  editPreset: "nvim"
+
