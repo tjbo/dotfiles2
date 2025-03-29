@@ -6,7 +6,6 @@ To install them on a brand new machine:
 ## 3 Hyper Keys
 - hyper apps - controls switching spaces and apps
 - hyper raycast - a utility modal, we can do many things with
-- hyper kitty - a special binding for kitty terminal
 
 ### 1 - Hyper Apps (Desktop / Spaces) 
 (hyper 1 is right thumb super key)
@@ -26,5 +25,3 @@ To install them on a brand new machine:
 - hyper1 + u = upwork
 - hyper1 + a = android
 
-### ToDos
-- add command for auto opening a vertical output terminal in kitty
