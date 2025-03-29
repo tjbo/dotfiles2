@@ -1,21 +1,59 @@
 #!/bin/sh
-brew install git
-brew install zsh
-brew install zsh-syntax-highlighting
-brew install zsh-vi-mode
-brew install zsh-autosuggestions
-brew install nvim
-brew install fzf
-brew install pure
-brew install yarn
-brew install stylua
-brew install node
-brew install --cask spotify
-brew install httpie
-brew install --cask font-hack
-brew install --cask kitty 
-brew install neofetch
-brew install lazygit
-brew install ripgrep
-brew install karabiner-elements
-brew install prettier
+
+# ensure homebrew is installed
+if ! command -v brew &>/dev/null; then
+  echo "Homebrew is not installed. Install it from https://brew.sh/"
+  exit 1
+fi
+
+brew update
+
+# Homebrew formulae (CLI tools, libraries, etc.)
+formulae=(
+  git
+  zsh
+  zsh-syntax-highlighting
+  zsh-vi-mode
+  zsh-autosuggestions
+  nvim
+  fzf
+  pure
+  yarn
+  stylua
+  node
+  httpie
+  neofetch
+  lazygit
+  ripgrep
+  prettier
+)
+
+# Homebrew casks (GUI apps, fonts, etc.)
+casks=(
+  1password
+  flipper
+  inkscape
+  slack
+  alt-tab
+  google-chrome
+  transmission
+  whatsapp
+  spotify
+  font-hack
+  kitty
+  karabiner-elements
+)
+
+# Install formulae
+for formula in "${formulae[@]}"; do
+  echo "Installing formula: $formula"
+  brew install "$formula"
+done
+
+# Install casks
+for cask in "${casks[@]}"; do
+  echo "Installing cask: $cask"
+  brew install --cask "$cask"
+done
+
+ 
