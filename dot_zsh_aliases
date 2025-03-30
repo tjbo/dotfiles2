@@ -2,7 +2,7 @@
 alias -- g=lazygit
 alias -- gs='git status'
 alias -- ls='ls -AGFhol'
-alias -- reload='source ~/.zshrc'
+alias -- r='chezmoi apply && source ~/.zshrc'
 
 # chezmoi
 alias -- ca='chezmoi apply'
@@ -16,6 +16,8 @@ alias -- evt='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/the
 alias -- cdvp='cd ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/'
 alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
 alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
+alias -- o='nvim -c 'Oil .' '
+alias -- cdcvp='cd ~/.config/nvim/lua/custom/plugins/'
 
 # nvim
 alias -- e=nvim

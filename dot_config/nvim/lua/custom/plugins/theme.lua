@@ -14,8 +14,12 @@ return {
 		vim.api.nvim_set_hl(0, "BufferLineSeparator", { bg = "NONE", fg = "NONE" })
 		vim.api.nvim_set_hl(0, "BufferLineSeparatorSelected", {})
 		vim.cmd("colorscheme cyberdream")
+
 		require("cyberdream").setup({
 			transparent = true,
 		})
 	end,
+	opts = {
+		saturation = 0.6,
+	},
 }

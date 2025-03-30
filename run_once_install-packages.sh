@@ -30,6 +30,7 @@ formulae=(
 
 # Homebrew casks (GUI apps, fonts, etc.)
 casks=(
+  1password-cli
   1password
   flipper
   inkscape

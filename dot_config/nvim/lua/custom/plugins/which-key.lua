@@ -64,10 +64,11 @@ return {
 		},
 		spec = {
 			{ "<leader><leader>", "<Cmd>BufferLinePick<cr>", desc = "Pick Buffer" },
-			{ "<leader>a", group = "Copilot" },
-			{ "<leader>ac", "<Cmd>CopilotChatToggle<CR>", group = "Copilot" },
-			{ "<leader>af", "<Cmd>CopilotChatFix<CR>", group = "Copilot" },
-
+			{ "<leader>a", group = "Gp" },
+			{ "<leader>ai", "<Cmd>GpRewrite<cr>", desc = "Rewrite code" },
+			{ "<leader>aa", "<Cmd>GpAppend<cr>", desc = "Append code" },
+			{ "<leader>ap", "<Cmd>GpPrepend<cr>", group = "Prepend code" },
+			{ "<leader>ac", "<Cmd>GpNew<cr>", desc = "Open prompt" },
 			{ "<leader>b", group = "Bufferline" },
 			{ "<leader>bc", "<Cmd>bd<cr>", desc = "Close buffer" },
 			{ "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
