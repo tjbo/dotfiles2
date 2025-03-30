@@ -17,14 +17,15 @@ formulae=(
   zsh-autosuggestions
   nvim
   fzf
+  jless # command line json viewer 
   pure
   yarn
   stylua
   node
-  httpie
+  httpie # to test http requests in command line
   neofetch
   lazygit
-  ripgrep
+  ripgrep # used by nvim-telescope
   prettier
 )
 

@@ -3,9 +3,9 @@ This is a repo for my dotfiles.
 To install them on a brand new machine:
 `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply tjbo`
 
-## 3 Hyper Keys
-- hyper apps - controls switching spaces and apps
-- hyper raycast - a utility modal, we can do many things with
+## Two Hyper Keys
+- hyper1 is for apps - controls switching spaces and apps
+- hyper2 is for raycast - a utility modal, we can do many things with
 
 ### 1 - Hyper Apps (Desktop / Spaces) 
 (hyper 1 is right thumb super key)
@@ -24,4 +24,10 @@ To install them on a brand new machine:
 - hyper1 + s = spotify
 - hyper1 + u = upwork
 - hyper1 + a = android
+
+### 2
+- hyper2 + g = open google prompt
+
+### Workflows
+JSON Viewing = use jless in CLI
 

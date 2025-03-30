@@ -2,7 +2,7 @@
 alias -- g=lazygit
 alias -- gs='git status'
 alias -- ls='ls -AGFhol'
-alias -- r='chezmoi apply && source ~/.zshrc'
+alias -- r='chezmoi apply && kitty @ load-config && source  ~/.zshrc'
 
 # chezmoi
 alias -- ca='chezmoi apply'
