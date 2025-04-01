@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -7,15 +9,10 @@ vim.opt.number = true
 vim.opt.showmode = false
 vim.opt.re = 1
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "lua",
-	callback = function()
-		vim.bo.tabstop = 2 -- Number of spaces a <Tab> counts for
-		vim.bo.shiftwidth = 2 -- Number of spaces for each indentation
-		vim.bo.softtabstop = 2 -- Number of spaces when pressing <Tab>
-		vim.bo.expandtab = true -- Use spaces instead of tabs
-	end,
-})
+vim.o.tabstop = 2 -- Number of spaces a <Tab> counts for
+vim.o.shiftwidth = 2 -- Number of spaces for each indentation
+vim.o.softtabstop = 2 -- Number of spaces when pressing <Tab>
+vim.o.expandtab = true -- Use spaces instead of tabs
 
 --j search
 vim.opt.hlsearch = true
@@ -153,7 +150,7 @@ vim.opt.list = false
 vim.opt.inccommand = "split"
 
 -- show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 999

@@ -27,40 +27,11 @@ return {
 		},
 
 		icons = {
-			-- set icon mappings to true if you have a Nerd Font
-			mappings = vim.g.have_nerd_font,
-			-- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-			-- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-			keys = vim.g.have_nerd_font and {} or {
-				Up = "<Up> ",
-				Down = "<Down> ",
-				Left = "<Left> ",
-				Right = "<Right> ",
-				C = "<C-…> ",
-				M = "<M-…> ",
-				D = "<D-…> ",
-				S = "<S-…> ",
-				CR = "<CR> ",
-				Esc = "<Esc> ",
-				ScrollWheelDown = "<ScrollWheelDown> ",
-				ScrollWheelUp = "<ScrollWheelUp> ",
-				NL = "<NL> ",
-				BS = "<BS> ",
-				Space = "<Space> ",
-				Tab = "<Tab> ",
-				F1 = "<F1>",
-				F2 = "<F2>",
-				F3 = "<F3>",
-				F4 = "<F4>",
-				F5 = "<F5>",
-				F6 = "<F6>",
-				F7 = "<F7>",
-				F8 = "<F8>",
-				F9 = "<F9>",
-				F10 = "<F10>",
-				F11 = "<F11>",
-				F12 = "<F12>",
-			},
+			breadcrumb = "»", -- You can change these to whatever you want or leave them empty
+			separator = "→", -- Or keep as default without any special characters
+			group = "", -- Empty group will hide icons in the group
+			ellipsis = "…",
+			mappings = false,
 		},
 		spec = {
 			{ "<leader><leader>", "<Cmd>BufferLinePick<cr>", desc = "Pick Buffer" },
@@ -120,12 +91,6 @@ return {
 			},
 			{ "<leader>tg", "<cmd>lua require('telescope.builtin').git_status()<cr>", desc = "Show git files" },
 			{ "<leader>th", "<cmd>lua require('telescope.builtin').search_history()<cr>", desc = "Search History" },
-			{
-				"<leader>tj",
-				"<cmd>Telescope jsonfly<cr>",
-				desc = "Open json(fly)",
-				mode = "n",
-			},
 			{ "<leader>tm", "<cmd>lua require('telescope.builtin').marks()<cr>", desc = "Marks" },
 			{ "<leader>tn", "<cmd>Telescope noice<cr>", desc = "Show Notification History" },
 			{ "<leader>to", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", desc = "Recent Files" },

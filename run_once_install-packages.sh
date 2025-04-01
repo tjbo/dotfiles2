@@ -21,6 +21,7 @@ formulae=(
   pure
   yarn
   stylua
+  typescript
   node
   httpie # to test http requests in command line
   neofetch
