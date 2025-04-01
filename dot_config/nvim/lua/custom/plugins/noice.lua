@@ -33,6 +33,9 @@ return {
 					height = "auto",
 				},
 			},
+			confirm = {
+				position = "center", -- Center confirmation popups
+			},
 			popupmenu = {
 				enabled = true,
 				backend = "nui",
