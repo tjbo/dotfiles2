@@ -1,4 +1,4 @@
-rturn({
+return {
 	-- main LSP Configuration
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -196,4 +196,4 @@ rturn({
 			},
 		})
 	end,
-})
+}

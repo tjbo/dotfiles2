@@ -1,5 +1,6 @@
 return {
 	"robitx/gp.nvim",
+	enable = false,
 	config = function()
 		local conf = {
 			providers = {
@@ -10,7 +11,7 @@ return {
 				},
 			},
 		}
-		require("gp").setup(conf)
+		-- require("gp").setup(conf)
 
 		-- Setup shortcuts here (see Usage > Shortcuts in the Documentation/Readme)
 	end,
