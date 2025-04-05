@@ -2,25 +2,33 @@
 alias -- g=lazygit
 alias -- gs='git status'
 alias -- ls='ls -AGFhol'
-alias -- r='chezmoi apply && kitty @ load-config && source  ~/.zshrc'
+alias -- r='chezmoi apply --force && kitty @ load-config && source  ~/.zshrc'
+
+# config dir
+alias -- cdc='cd ~/.config/'
+
+# open directory with oil
+alias -- o='nvim -c 'Oil .' '
+
+# nvim
+alias -- e=nvim
 
 # chezmoi
-alias -- ca='chezmoi apply'
-alias -- cdc='cd ~/.config/'
 alias -- cddf='cd ~/.local/share/chezmoi/'
 alias -- ei='nvim ~/.local/share/chezmoi/run_once_install-packages.sh'
 alias -- ek='nvim ~/.local/share/chezmoi/dot_config/kitty/kitty.conf'
 alias -- cdkt='cd ~/.local/share/chezmoi/dot_config/kitty/themes'
-alias -- ev='nvim ~/.local/share/chezmoi/dot_config/nvim/init.lua'
-alias -- evt='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/theme.lua'
 alias -- cdvp='cd ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/'
-alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
-alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
-alias -- o='nvim -c 'Oil .' '
 alias -- cdcvp='cd ~/.config/nvim/lua/custom/plugins/'
 
-# nvim
-alias -- e=nvim
+# edit zsh files
+alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
+alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
+
+# edit vim files
+alias -- ev='nvim ~/.local/share/chezmoi/dot_config/nvim/init.lua'
+alias -- evc='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/colorscheme.lua'
+alias -- evw='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/which-key.lua'
 
 # default
 alias -- c=clear

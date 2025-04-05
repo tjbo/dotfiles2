@@ -150,6 +150,12 @@ return {
 			{ "<leader>wh", "<cmd>wincmd l<cr>", desc = "Move left" },
 			{ "<leader>wl", "<cmd>wincmd l<cr>", desc = "Move right" },
 			{ "<leader>ww", "<cmd>wincmd w<cr>", desc = "Cycle windows" },
+			{ "<leader>o", group = "Nvim" },
+			{
+				"<leader>oo",
+				"<cmd>!chezmoi apply --force && luafile ~/.config/nvim/init.lua<cr>",
+				desc = "Refresh config",
+			},
 		},
 	},
 }

@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"Myzel394/jsonfly.nvim",
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{ "echasnovski/mini.icons", opts = {} },
 	},
 	config = function()
 		local actions = require("telescope.actions")
