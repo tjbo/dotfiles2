@@ -23,7 +23,7 @@ alias -- cdcvp='cd ~/.config/nvim/lua/custom/plugins/'
 
 # edit zsh files
 alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
-alias -- ezaa='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
+alias -- ezz='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
 
 # edit vim files
 alias -- evb='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/bufferline.lua'
