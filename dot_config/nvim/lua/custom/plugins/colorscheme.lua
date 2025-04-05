@@ -1,9 +1,5 @@
 return {
 	"navarasu/onedark.nvim",
-	dependencies = {
-		"akinsho/bufferline.nvim",
-	},
-	lazy = false,
 	config = function()
 		require("onedark").setup({
 			colors = {
@@ -41,6 +37,6 @@ return {
 				TSFuncBuiltin = { fg = "#0059ff" },
 			},
 		})
-		vim.cmd("colorscheme onedark")
+		require("onedark").load()
 	end,
 }

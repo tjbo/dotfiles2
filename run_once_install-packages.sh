@@ -10,6 +10,7 @@ brew update
 
 # Homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
+  eza
   git
   zsh
   zsh-syntax-highlighting

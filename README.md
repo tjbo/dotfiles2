@@ -35,4 +35,5 @@ JSON Viewing = use jless in CLI
 - add incremental selection for NVIM
 - add quick fix to work flow
 - remove AI plugin? or get AI tab completion
-
+- remember vi and va
+- look at lazy loading things

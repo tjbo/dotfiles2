@@ -1,8 +1,8 @@
 # general
 alias -- g=lazygit
 alias -- gs='git status'
-alias -- ls='ls -AGFhol'
 alias -- r='chezmoi apply --force && kitty @ load-config && source  ~/.zshrc'
+alias -- ls='eza'
 
 # config dir
 alias -- cdc='cd ~/.config/'
@@ -23,11 +23,13 @@ alias -- cdcvp='cd ~/.config/nvim/lua/custom/plugins/'
 
 # edit zsh files
 alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
-alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
+alias -- ezaa='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
 
 # edit vim files
+alias -- evb='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/bufferline.lua'
 alias -- ev='nvim ~/.local/share/chezmoi/dot_config/nvim/init.lua'
 alias -- evc='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/colorscheme.lua'
+alias -- evt='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/nvim-treesitter.lua'
 alias -- evw='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/which-key.lua'
 
 # default
