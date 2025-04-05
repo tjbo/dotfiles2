@@ -41,7 +41,6 @@ return {
 				TSFuncBuiltin = { fg = "#0059ff" },
 			},
 		})
-
 		vim.cmd("colorscheme onedark")
 	end,
 }
