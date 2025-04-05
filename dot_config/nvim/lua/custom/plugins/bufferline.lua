@@ -2,8 +2,8 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "*",
 	dependencies = {
-		"navarasu/onedark.nvim",
-		"nvim-tree/nvim-web-devicons",
+		{ "navarasu/onedark.nvim" },
+		{ "echasnovski/mini.icons" },
 	},
 	config = function()
 		require("bufferline").setup({
