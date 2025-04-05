@@ -2,7 +2,7 @@
 alias -- g=lazygit
 alias -- gs='git status'
 alias -- r='chezmoi apply --force && kitty @ load-config && source  ~/.zshrc'
-alias -- ls='eza'
+alias -- ls='lsd -1'
 
 # config dir
 alias -- cdc='cd ~/.config/'
@@ -23,7 +23,7 @@ alias -- cdcvp='cd ~/.config/nvim/lua/custom/plugins/'
 
 # edit zsh files
 alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
-alias -- ezz='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
+alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
 
 # edit vim files
 alias -- evb='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/bufferline.lua'

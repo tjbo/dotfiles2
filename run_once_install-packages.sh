@@ -10,7 +10,7 @@ brew update
 
 # Homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
-  eza
+  lsd
   git
   zsh
   zsh-syntax-highlighting
@@ -22,6 +22,7 @@ formulae=(
   pure
   yarn
   stylua
+  tree
   typescript
   node
   httpie # to test http requests in command line
