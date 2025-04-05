@@ -31,3 +31,8 @@ To install them on a brand new machine:
 ### Workflows
 JSON Viewing = use jless in CLI
 
+## ToDos
+- add incremental selection for NVIM
+- add quick fix to work flow
+- remove AI plugin? or get AI tab completion
+
