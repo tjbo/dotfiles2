@@ -10,6 +10,8 @@ brew update
 
 # Homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
+  entr
+  fd
   lsd
   git
   zsh

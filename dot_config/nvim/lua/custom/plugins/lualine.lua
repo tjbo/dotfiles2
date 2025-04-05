@@ -23,7 +23,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch" },
+				lualine_b = {},
 				lualine_c = {
 					{
 						"filename",
@@ -56,6 +56,31 @@ return {
 				lualine_z = {},
 			},
 			winbar = {},
+			tabline = {
+				lualine_a = { "branch" },
+				lualine_b = {
+					{
+						function()
+							return require("grapple").name_or_index()
+						end,
+						cond = function()
+							return package.loaded["grapple"] and require("grapple").exists()
+						end,
+					},
+				},
+				lualine_c = {
+					{
+						"filename",
+
+						file_status = true, -- displays file status (readonly status, modified status)
+						newfile_status = true, -- display new file status (new file means no write after created)
+						path = 0,
+					},
+				},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
 			inactive_winbar = {},
 			extensions = {},
 		})
