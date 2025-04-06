@@ -43,7 +43,7 @@ bindkey -M vicmd 'vv' edit-command-line
 
 # zsh plugins
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS="--scrollbar='x' --no-separator --no-info --border=horizontal --scrollbar=' ' --height=50% --layout=reverse --no-separator --info=hidden --prompt='=>' --wrap --padding=1,0,1,0 "
+export FZF_DEFAULT_OPTS="--scrollbar='x' --no-separator --no-info --border=horizontal --scrollbar=' ' --height=50% --layout=reverse --no-separator --info=hidden --prompt='=>' --wrap --padding=1,0,1,0"
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
