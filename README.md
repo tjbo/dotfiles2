@@ -37,3 +37,10 @@ JSON Viewing = use jless in CLI
 - remove AI plugin? or get AI tab completion
 - remember vi and va
 - look at lazy loading things
+
+## Mini.ai
+- dib, dab = brackets
+- diq, daq, = quotes
+- dif, daf = functions
+- dia, daa = arguments
+

@@ -92,6 +92,9 @@ return {
 			{ "<leader>2", "<cmd>Grapple select index=2<cr>", desc = "Select second tag" },
 			{ "<leader>3", "<cmd>Grapple select index=3<cr>", desc = "Select third tag" },
 			{ "<leader>4", "<cmd>Grapple select index=4<cr>", desc = "Select fourth tag" },
+			{ "<leader>5", "<cmd>Grapple select index=5<cr>", desc = "Select fifth tag" },
+			{ "<leader>6", "<cmd>Grapple select index=5<cr>", desc = "Select sixth tag" },
+			{ "<leader>7", "<cmd>Grapple select index=5<cr>", desc = "Select seventh tag" },
 			{ "<leader><leader>", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window" },
 			{ "<leader>hh", "<cmd>Grapple cycle_tags next<cr>", desc = "Grapple cycle next tag" },
 			{ "<leader>ht", "<cmd>Grapple tag<cr>", desc = "Grapple tag" },
@@ -146,12 +149,6 @@ return {
 			{ "<leader>wh", "<cmd>wincmd l<cr>", desc = "Move left" },
 			{ "<leader>wl", "<cmd>wincmd l<cr>", desc = "Move right" },
 			{ "<leader>ww", "<cmd>wincmd w<cr>", desc = "Cycle windows" },
-			{ "<leader>o", group = "Nvim" },
-			{
-				"<leader>oo",
-				"<cmd>!chezmoi apply --force && luafile ~/.config/nvim/init.lua<cr>",
-				desc = "Refresh config",
-			},
 		},
 	},
 }
