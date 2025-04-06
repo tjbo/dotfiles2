@@ -9,7 +9,6 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 CASE_SENSITIVE=true
 EDITOR="nvim"
-FZF_DEFAULT_OPTS="--height 100% --border"
 GIT_EDITOR="nvim"
 KEY_TIMEOUT="1"
 PURE_PROMPT_SYMBOL="=>"
@@ -31,9 +30,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
-
-
-
 unsetopt beep
 
 # pure prompt
@@ -46,24 +42,24 @@ zle -N edit-command-line
 bindkey -M vicmd 'vv' edit-command-line
 
 # zsh plugins
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS="--scrollbar='x' --no-separator --no-info --border=horizontal --scrollbar=' ' --height=50% --layout=reverse --no-separator --info=hidden --prompt='=>' --wrap --padding=1,0,1,0 "
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /nix/store/7flbcf7cpjz2hypfdhansk4h38ik0x5z-fzf-0.55.0/share/fzf/key-bindings.zsh
-
-# bind to fzf history search
-export FZF_DEFAULT_OPTS="--border=rounded --no-scrollbar --no-color --no-separator --no-info"
-
-bindkey -M emacs '^H' fzf-history-widget
-bindkey -M vicmd '^H' fzf-history-widget
-bindkey -M viins '^H' fzf-history-widget
 
 # bind to auto suggest
 bindkey '^ ' autosuggest-accept
-source <(fzf --zsh)
 
 echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+
+
+
+# keybindings for all modes
+for mode in viins vicmd; do
+  bindkey -M $mode '^H' fzf-history-widget
+done
 
 

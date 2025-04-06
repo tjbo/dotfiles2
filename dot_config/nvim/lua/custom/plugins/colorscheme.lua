@@ -38,5 +38,10 @@ return {
 			},
 		})
 		require("onedark").load()
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e1e2e", fg = "#cdd6f4" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#1e1e2e", fg = "#89dceb" })
+		vim.api.nvim_set_hl(0, "FloatTitle", { fg = "#f5c2e7", bold = true })
+		vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1e1e2e", fg = "#cdd6f4" })
+		vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#313244", fg = "#f38ba8", bold = true })
 	end,
 }
