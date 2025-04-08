@@ -4,6 +4,9 @@ export NODE_PATH=~/.npm-packages/lib/node_modules
 export NODE_OPTIONS="--openssl-legacy-provider"
 typeset -U path cdpath fpath manpath
 
+# python
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
+
 # this for some reason loads zsh 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 

@@ -8,7 +8,7 @@ fi
 
 brew update
 
-# Homebrew formulae (CLI tools, libraries, etc.)
+# homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
   entr
   fd
@@ -34,29 +34,28 @@ formulae=(
   zsh-autosuggestions
 )
 
-# Homebrew casks (GUI apps, fonts, etc.)
+# homebrew casks (GUI apps, fonts, etc.)
 casks=(
-  1password-cli
-  1password
-  flipper
+  brave-browser
+  firefox
+  font-hack
   inkscape
-  slack
   google-chrome
+  karabiner-elements
+  kitty
+  slack
+  spotify
   transmission
   whatsapp
-  spotify
-  font-hack
-  kitty
-  karabiner-elements
 )
 
-# Install formulae
+# install formulae
 for formula in "${formulae[@]}"; do
   echo "Installing formula: $formula"
   brew install "$formula"
 done
 
-# Install casks
+# install casks
 for cask in "${casks[@]}"; do
   echo "Installing cask: $cask"
   brew install --cask "$cask"
