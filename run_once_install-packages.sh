@@ -12,26 +12,26 @@ brew update
 formulae=(
   entr
   fd
-  lsd
+  fzf
   git
+  go
+  httpie 
+  jless 
+  lazygit
+  lsd
+  node
+  nvim
+  pure
+  prettier
+  ripgrep # used by nvim-telescope
+  stylua
+  tree
+  typescript
+  yarn
   zsh
   zsh-syntax-highlighting
   zsh-vi-mode
   zsh-autosuggestions
-  nvim
-  fzf
-  jless # command line json viewer 
-  pure
-  yarn
-  stylua
-  tree
-  typescript
-  node
-  httpie # to test http requests in command line
-  neofetch
-  lazygit
-  ripgrep # used by nvim-telescope
-  prettier
 )
 
 # Homebrew casks (GUI apps, fonts, etc.)
@@ -41,7 +41,6 @@ casks=(
   flipper
   inkscape
   slack
-  alt-tab
   google-chrome
   transmission
   whatsapp
