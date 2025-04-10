@@ -32,59 +32,32 @@ return {
 					-- 	"<cmd>lua require('telescope.builtin').lsp_outgoing_calls()<cr>",
 					-- 	desc = "LSP Outgoing Calls",
 					-- },
-					{
-						"<leader>lf",
-						"<cmd>lua require('telescope.builtin').lsp_document_symbols({ symbols = { 'Function' }})<cr>",
-						desc = "LSP Document Symbols",
-					},
-					{
-						"<leader>lv",
-						"<cmd>lua require('telescope.builtin').lsp_document_symbols({ symbols = { 'Variable' }})<cr>",
-						desc = "LSP Document Symbols",
-					},
-
-					{
-						"<leader>ls",
-						"<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>",
-						desc = "LSP Document Symbols",
-					},
-
-					{
-						"<leader>lw",
-						"<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
-						desc = "LSP Workspace Symbols",
-					},
-					{
-						"<leader>ld",
-						"<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>",
-						desc = "LSP Dynamic Workspace Symbols",
-					},
 					-- {
-					-- 	"<leader>lm",
-					-- 	"<cmd>lua require('telescope.builtin').lsp_implementations()<cr>",
-					-- 	desc = "LSP Implementations",
+					-- 	"<leader>lf",
+					-- 	"<cmd>lua require('telescope.builtin').lsp_document_symbols({ symbols = { 'Function' }})<cr>",
+					-- 	desc = "LSP Document Symbols",
+					-- },
+					-- {
+					-- 	"<leader>lv",
+					-- 	"<cmd>lua require('telescope.builtin').lsp_document_symbols({ symbols = { 'Variable' }})<cr>",
+					-- 	desc = "LSP Document Symbols",
+					-- },
+
+					-- {
+					-- 	"<leader>ll",
+					-- 	"<cmd>lua require('telescope.builtin').lsp_definitions()<cr>",
+					-- 	desc = "LSP Definitions",
 					-- },
 					{
-						"<leader>ll",
-						"<cmd>lua require('telescope.builtin').lsp_definitions()<cr>",
-						desc = "LSP Definitions",
-					},
-					{
 						"<leader>lr",
-						"<cmd>vim.lsp.buf.rename<cr>",
+						"<cmd>lua vim.lsp.buf.rename()<cr>",
 						desc = "Rename word under cursor",
 					},
 					{
 						"<leader>la",
-						"<cmd>vim.lsp.buf.code_action<cr>",
+						"<cmd>lua vim.lsp.buf.code_action()<cr>",
 						desc = "Code action",
 					},
-					-- map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-					-- {
-					-- 	"<leader>lt",
-					-- 	"<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>",
-					-- 	desc = "LSP Type Definitions",
-					-- },
 				})
 
 				-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
@@ -143,7 +116,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			-- gopls = {},
+			gopls = {},
 			-- pyright = {},
 			ts_ls = {},
 			lua_ls = {
@@ -177,7 +150,8 @@ return {
 		-- for you, so that they are available from within Neovim.
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format Lua code
+			"gopls",
+			"stylua",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

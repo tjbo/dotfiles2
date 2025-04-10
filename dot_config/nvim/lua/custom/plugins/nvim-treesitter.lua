@@ -20,6 +20,7 @@ return {
 				"bash",
 				"c",
 				"css",
+				"go",
 				"html",
 				"http",
 				"javascript",

@@ -13,14 +13,14 @@ To install them on a brand new machine:
 - hyper1 + uparrow = mission control
 - hyper1 + downarrow = application windows 
 - #1 - hyper1 + t = terminal
-- #2 hyper1 + c = chrome
-- #3 hyper1 + b (for browser) = safari 
-- #4 hyper1 + p = pages / preview
-- #5 hyper1 + n = notes
-- #6 hyper1 + g = google
-- #7 hyper1 + s = slack
-- #8 
-- #9 
+- #2 - hyper1 + c = chrome
+- #3 - hyper1 + b (for browser) = safari 
+- #4 - hyper1 + p = pages / preview
+- #5 - hyper1 + n = notes
+- #6 - hyper1 + g = google
+- #7 - hyper1 + s = slack
+- #8 - hyper1 + y = youtube
+- #9 - hyper1 + i = (inspector) brave 
 - #10 - hyper1 + w = whatsapp
 - #11 - hyper1 + m = spotify
 - #12 - hyper1 + u = upwork
@@ -40,6 +40,7 @@ JSON Viewing = use jless in CLI
 - add quick fix to work flow
 - remember vi and va
 - look at lazy loading things better
+- can we make a hammerspoon script that either launches or loads and app?
 
 ## Mini.ai
 - dib, dab = brackets
