@@ -41,6 +41,7 @@ casks=(
   font-hack
   inkscape
   google-chrome
+  hammerspoon
   karabiner-elements
   kitty
   slack

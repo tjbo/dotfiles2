@@ -25,9 +25,8 @@ To install them on a brand new machine:
 - #11 - hyper1 + m = spotify
 - #12 - hyper1 + u = upwork
 - #13 - hyper1 + a = ai chat 
-- #14 - hyper1 + e = empty screen (desktop)
-- #15 - hyper1 + o = config (karabiner) 
-- #16 - 
+- #15 - hyper1 + k = config (karabiner) 
+- #16 - hyper1 + e = empty screen (desktop)
 
 ToDo
 - hyper1 + i = inspector (for debugging)
