@@ -1,0 +1,18 @@
+{
+  "description": "Hyper Key 2 - Kitty (⌘⌥⌃)",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "right_option",
+        "modifiers": { "optional": [] }
+      },
+      "to": [
+        {
+          "key_code": "left_command",
+          "modifiers": ["left_shift", "left_control"]
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

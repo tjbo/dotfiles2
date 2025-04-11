@@ -25,8 +25,9 @@ To install them on a brand new machine:
 - #11 - hyper1 + m = spotify
 - #12 - hyper1 + u = upwork
 - #13 - hyper1 + a = ai chat 
-- #14 - hpyper1 + e = empty screen (desktop)
-- #15 - hpyper1 + o = config (karabiner) 
+- #14 - hyper1 + e = empty screen (desktop)
+- #15 - hyper1 + o = config (karabiner) 
+- #16 - 
 
 ToDo
 - hyper1 + i = inspector (for debugging)
@@ -41,10 +42,18 @@ JSON Viewing = use jless in CLI
 - remember vi and va
 - look at lazy loading things better
 - can we make a hammerspoon script that either launches or loads and app?
+- switch fast mail to icloud
 
 ## Mini.ai
 - dib, dab = brackets
 - diq, daq, = quotes
 - dif, daf = functions
 - dia, daa = arguments
+
+## Karabiner (manual setup)
+- add simple modification "left option" -> "left control"
+- add simple modification "caps lock" -> "escape"
+- copy "./karabiner/hyper_1_apps.json" to complex modifications
+- copy "./karabiner/hyper_2_kitty.json" to complex modifications
+- copy "./karabiner/disable_cmd_tab.json to complex modifications
 

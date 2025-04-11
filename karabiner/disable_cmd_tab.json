@@ -1,0 +1,20 @@
+{
+  "description": "Disable Command + Tab (App Switcher)",
+  "manipulators": [
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "tab",
+        "modifiers": {
+          "mandatory": ["left_command"],
+          "optional": ["any"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "f13"
+        }
+      ]
+    }
+  ]
+}

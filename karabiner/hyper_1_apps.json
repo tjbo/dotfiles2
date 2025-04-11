@@ -1,0 +1,18 @@
+{
+  "description": "Hyper Key 1 - Apps (⌘⌥⌃)",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "right_command",
+        "modifiers": { "optional": [] }
+      },
+      "to": [
+        {
+          "key_code": "left_command",
+          "modifiers": ["left_shift", "left_option", "left_control"]
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}
