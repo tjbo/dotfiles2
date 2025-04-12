@@ -1,7 +1,9 @@
-ctrlCmdShortcuts = {
+hyper1Shortcuts = {
 	{ "T", "kitty" },
 	{ "C", "Google Chrome" },
 	{ "B", "Safari" },
+	{ "E", "Mail" },
+	{ "R", "WriteRoom" },
 	{ "P", "Pages" },
 	{ "N", "Notes" },
 	{ "G", "Google" },
@@ -13,13 +15,12 @@ ctrlCmdShortcuts = {
 	{ "U", "Upwork" },
 	{ "A", "ChatGPT" },
 	{ "K", "Karabiner-Elements" },
+	{ "V", "VLC" },
 }
 
--- hs.hotkey.bind({ "ctrl", "cmd", "shift", "alt" }, "E", function()
--- 	hs.spaces.gotoSpace(16)
--- end)
+-- E is done in mission control at the moment stands for everything
 
-for i, shortcut in ipairs(ctrlCmdShortcuts) do
+for i, shortcut in ipairs(hyper1Shortcuts) do
 	hs.hotkey.bind({ "ctrl", "cmd", "shift", "alt" }, shortcut[1], function()
 		hs.application.launchOrFocus(shortcut[2])
 	end)

@@ -8,7 +8,8 @@ To install them on a brand new machine:
 (hyper 1 is right thumb super key)
 
 ### 1 - Hyper Apps (Desktop / Spaces) 
-#1 refer to desktops
+Each app is mapped to a desktop. And a hyper key. The hyperkeys are configured
+in hammerspoon. 
 
 - hyper1 + uparrow = mission control
 - hyper1 + downarrow = application windows 
@@ -25,8 +26,10 @@ To install them on a brand new machine:
 - #11 - hyper1 + m = spotify
 - #12 - hyper1 + u = upwork
 - #13 - hyper1 + a = ai chat 
+- #14 - hyper1  + e = email
 - #15 - hyper1 + k = config (karabiner) 
-- #16 - hyper1 + e = empty screen (desktop)
+- #16 - hyper1 + x = empty screen (desktop)
+- #16 - hyper1 + v = vlc
 
 ToDo
 - hyper1 + i = inspector (for debugging)
@@ -36,12 +39,11 @@ JSON Viewing = use jless in CLI
 
 ## ToDos
 - add vimium to workflow 
-- add incremental selection for NVIM
 - add quick fix to work flow
-- remember vi and va
+- remember text objects 
 - look at lazy loading things better
-- can we make a hammerspoon script that either launches or loads and app?
 - switch fast mail to icloud
+- improve hammerspoon
 
 ## Mini.ai
 - dib, dab = brackets
