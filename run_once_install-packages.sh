@@ -62,4 +62,7 @@ for cask in "${casks[@]}"; do
   brew install --cask "$cask"
 done
 
+# other plugins
+# vimlike for safari in macos store
+
  

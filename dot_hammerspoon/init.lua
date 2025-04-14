@@ -16,6 +16,11 @@ hyper1Shortcuts = {
 	{ "A", "ChatGPT" },
 	{ "K", "Karabiner-Elements" },
 	{ "V", "VLC" },
+	{ "Z", "Zight" },
+	{ "1", "Passwords" },
+
+	-- Remaining
+	-- D F G H J K L O Q W
 }
 
 -- E is done in mission control at the moment stands for everything
