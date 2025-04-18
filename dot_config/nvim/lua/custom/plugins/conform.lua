@@ -23,6 +23,7 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {},
 	opts = {
+		-- log_level = vim.log.levels.DEBUG,
 		notify_on_error = false,
 		format_on_save = function(bufnr)
 			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -41,10 +42,18 @@ return {
 				}
 			end
 		end,
+		fomatters = {
+			prettier = {
+				require_cwd = true,
+			},
+		},
 		formatters_by_ft = {
 			go = { "gofmt" },
 			lua = { "stylua" },
 			json = { "prettier" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 		},
 	},
 }

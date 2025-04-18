@@ -35,7 +35,7 @@ alias -- evw='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/whi
 # edit hammerspoon
 alias -- eh='nvim ~/.local/share/chezmoi/dot_hammerspoon/init.lua'
 
-# default
+# general 
 alias -- c=clear
 alias -- cdb='cd ../'
 alias -- cddl='cd ~/Downloads'
@@ -57,6 +57,7 @@ alias -- cdtq='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqb='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqc='cd ~/Projects/tq/paperbits-cms/components/'
 alias -- cdtqf='cd ~/Projects/tq/tq-cms-functions'
+alias -- cdlv='cd ~/Projects/lexical-vim-plugin/'
 
 # yarn
 alias -- yrb='yarn run build'

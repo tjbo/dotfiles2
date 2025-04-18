@@ -152,7 +152,6 @@ return {
 			{ "<leader>wk", "<cmd>wincmd k<cr>", desc = "Move down" },
 			{ "<leader>wh", "<cmd>wincmd h<cr>", desc = "Move left" },
 			{ "<leader>wl", "<cmd>wincmd l<cr>", desc = "Move right" },
-			{ "<leader>ww", "<cmd>wincmd w<cr>", desc = "Cycle windows" },
 		},
 	},
 }

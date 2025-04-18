@@ -64,5 +64,3 @@ echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlight
 for mode in viins vicmd; do
   bindkey -M $mode '^H' fzf-history-widget
 done
-
-
