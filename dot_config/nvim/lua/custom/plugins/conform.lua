@@ -50,8 +50,10 @@ return {
 		formatters_by_ft = {
 			go = { "gofmt" },
 			lua = { "stylua" },
+			html = { "prettier" },
 			json = { "prettier" },
 			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
 		},
