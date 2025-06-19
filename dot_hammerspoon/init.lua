@@ -1,17 +1,19 @@
+---@diagnostic disable: undefined-global
+
 hyper1Shortcuts = {
-	{ "A", "AI", "ChatGPT", 13 },
+	{ "A", "Contacts", "Contacts" },
 	{ "B", "Browser", "Safari", 3 },
 	{ "C", "Chrome", "Google Chrome", 2 },
 	-- { "D" , ""},
 	{ "E", "Email", "Mail", 14 },
-	-- { "F" , ""},
+	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
 	{ "G", "Google", "Google", 6 },
 	-- { "H" , ""},
-	{ "I", "Inspector", "Brave Browser", 9 },
+	-- { "I", "Inspector", "Brave Browser", 9 }, controlled by mission control atm
 	-- { "J" , ""},
 	{ "K", "Keys", "Karabiner-Elements", 15 },
-	-- { "L", ""}
-	{ "M", "Music", "Spotify", 11 },
+	-- { "L", "Electron", 9 },controlled by mission control atm
+	{ "M", "Music", "YT Music", 11 },
 	{ "N", "Notes", "Notes", 5 },
 	-- { "O", "" },
 	{ "P", "Pages", "Pages", 4 },
@@ -22,7 +24,7 @@ hyper1Shortcuts = {
 	{ "U", "Upwork", "Upwork", 12 },
 	{ "V", "VLC", "VLC", 15 },
 	{ "W", "WhatsApp", "WhatsApp", 10 },
-	-- { "X", "" },
+	{ "X", "Xcode", "Xcode", 15 },
 	{ "Y", "YouTube", "YouTube", 8 },
 	{ "Z", "Zight", "Zight" },
 	{ "1", "Passwords", "Passwords" },

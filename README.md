@@ -4,7 +4,8 @@ To install them on a brand new machine:
 `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply tjbo`
 
 ## Two Hyper Keys
-- hyper1 controls switching spaces and apps
+- hyper1 - (apps) controls switching apps, spaces and OS windows 
+- hyper2 - (kitty) is solely for use in the terminal
 (hyper 1 is right thumb super key)
 
 ### 1 - Hyper Apps (Desktop / Spaces) 

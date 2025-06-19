@@ -1,7 +1,7 @@
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH=~/.npm-packages/bin:$PATH
 export NODE_PATH=~/.npm-packages/lib/node_modules
-export NODE_OPTIONS="--openssl-legacy-provider"
+# export NODE_OPTIONS="--openssl-legacy-provider"
 typeset -U path cdpath fpath manpath
 
 # python

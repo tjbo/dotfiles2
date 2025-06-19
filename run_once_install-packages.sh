@@ -39,13 +39,12 @@ casks=(
   brave-browser
   firefox
   font-hack
-  inkscape
   google-chrome
+  google-chrome@dev
   hammerspoon
   karabiner-elements
   kitty
   slack
-  spotify
   transmission
   whatsapp
 )

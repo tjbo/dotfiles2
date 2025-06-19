@@ -57,7 +57,7 @@ alias -- cdtq='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqb='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqc='cd ~/Projects/tq/paperbits-cms/components/'
 alias -- cdtqf='cd ~/Projects/tq/tq-cms-functions/functions/'
-alias -- cdlv='cd ~/Projects/lexical-vim-plugin/'
+alias -- cdtm='cd ~/Projects/text-motion/'
 
 # yarn
 alias -- yrb='yarn run build'

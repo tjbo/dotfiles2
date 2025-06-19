@@ -51,6 +51,7 @@ return {
 			go = { "gofmt" },
 			lua = { "stylua" },
 			html = { "prettier" },
+			xhtml = { "prettier" },
 			json = { "prettier" },
 			javascript = { "prettier" },
 			javascriptreact = { "prettier" },

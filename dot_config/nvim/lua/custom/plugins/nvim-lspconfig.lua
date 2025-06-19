@@ -134,6 +134,21 @@ return {
 				on_attach = function(client, bufnr)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
+
+					vim.api.nvim_create_autocmd("BufWritePost", {
+						pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+						callback = function(args)
+							local uri = vim.uri_from_fname(args.file)
+							vim.lsp.buf_notify(0, "workspace/didChangeWatchedFiles", {
+								changes = {
+									{
+										uri = uri,
+										type = 2, -- 2 = changed
+									},
+								},
+							})
+						end,
+					})
 				end,
 			},
 			lua_ls = {
