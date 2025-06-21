@@ -1,10 +1,10 @@
 ---@diagnostic disable: undefined-global
 
 hyper1Shortcuts = {
-	{ "A", "Contacts", "Contacts" },
+	{ "A", "Brave", "Brave", 9 },
 	{ "B", "Browser", "Safari", 3 },
 	{ "C", "Chrome", "Google Chrome", 2 },
-	-- { "D" , ""},
+	{ "D", "Dev", "Google Chrome Dev", 9 },
 	{ "E", "Email", "Mail", 14 },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
 	{ "G", "Google", "Google", 6 },

@@ -36,8 +36,8 @@ formulae=(
 
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
-  brave-browser
   firefox
+  brave-browser
   font-hack
   google-chrome
   google-chrome@dev
