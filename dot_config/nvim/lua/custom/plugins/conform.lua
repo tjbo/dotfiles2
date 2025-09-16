@@ -48,6 +48,7 @@ return {
 			},
 		},
 		formatters_by_ft = {
+			astro = { "prettier" },
 			go = { "gofmt" },
 			lua = { "stylua" },
 			html = { "prettier" },

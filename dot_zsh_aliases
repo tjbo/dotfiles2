@@ -44,6 +44,8 @@ alias -- cde='cd ~/Projects/eitherorelse.com'
 alias -- cdma='cd ~/Projects/tq/paperbits-cms/microapps/'
 alias -- cdn='cd ~/dotfiles'
 alias -- cdp='cd ~/Projects/'
+alias -- cdcl='cd ~/Projects/crescentlenders.com/'
+alias -- cdr='cd ~/Projects/letsstayrational.com/'
 alias -- cdpp='cd ~/Projects/productopia/'
 alias -- cdppf='cd ~/Projects/productopia/functions'
 alias -- cdpr='cd ~/Projects/prototypable.io/'
@@ -58,6 +60,7 @@ alias -- cdtqb='cd ~/Projects/tq/paperbits-cms/'
 alias -- cdtqc='cd ~/Projects/tq/paperbits-cms/components/'
 alias -- cdtqf='cd ~/Projects/tq/tq-cms-functions/functions/'
 alias -- cdtm='cd ~/Projects/text-motion/'
+
 
 # yarn
 alias -- yrb='yarn run build'

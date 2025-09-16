@@ -16,10 +16,12 @@ formulae=(
   git
   go
   httpie 
+  insomnia
   jless 
   lazygit
   lsd
   node
+  netlify-cli
   nvim
   pure
   prettier
@@ -36,6 +38,7 @@ formulae=(
 
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
+  docker
   firefox
   brave-browser
   font-hack
