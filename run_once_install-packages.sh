@@ -10,6 +10,8 @@ brew update
 
 # homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
+  docker
+  docker-compose
   entr
   fd
   fzf
@@ -23,6 +25,7 @@ formulae=(
   node
   netlify-cli
   nvim
+  pipx
   pure
   prettier
   ripgrep # used by nvim-telescope
@@ -38,9 +41,10 @@ formulae=(
 
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
-  docker
-  firefox
   brave-browser
+  docker
+  duckduckgo
+  firefox
   font-hack
   google-chrome
   google-chrome@dev

@@ -5,7 +5,7 @@ To install them on a brand new machine:
 
 ## Two Hyper Keys
 - hyper1 - (apps) controls switching apps, spaces and OS windows 
-- hyper2 - (kitty) is solely for use in the terminal
+- hyper2 - (system) is used to control mac osx 
 (hyper 1 is right thumb super key)
 
 ### 1 - Hyper Apps (Desktop / Spaces) 

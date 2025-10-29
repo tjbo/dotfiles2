@@ -1,10 +1,10 @@
 ---@diagnostic disable: undefined-global
 
 hyper1Shortcuts = {
-	{ "A", "Brave", "Brave Browser", 13 },
-	{ "B", "Browser", "Safari", 3 },
-	{ "C", "Chrome", "Google Chrome", 2 },
-	{ "D", "Dev", "Google Chrome Dev", 9 },
+	{ "A", "DuckDuckGo", "DuckDuckGo", 13 },
+	{ "B", "Brave", "Brave Browser", 2 },
+	{ "C", "Chrome", "Google Chrome", 3 },
+	-- { "D", "", "", 9 },
 	{ "E", "Email", "Mail", 14 },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
 	{ "G", "Google", "Google", 6 },
@@ -17,7 +17,7 @@ hyper1Shortcuts = {
 	{ "P", "Pages", "Pages", 4 },
 	-- { "Q", "" },
 	{ "R", "Write", "WriteRoom" },
-	{ "S", "Slack", "Slack", 7 },
+	{ "S", "Safari", "Safari", 3 },
 	{ "T", "Terminal", "kitty", 1 },
 	{ "V", "Preview", "Preview", 4 },
 	{ "W", "WhatsApp", "WhatsApp", 10 },
@@ -26,13 +26,15 @@ hyper1Shortcuts = {
 	{ "Z", "Zight", "Zight" },
 }
 
--- for overlay apps
+-- for overlay apps, used with extra shift key
 hyper2Shortcuts = {
 	{ "C", "Contacts", "Contacts" },
-	{ "P", "1Password", "1Password" },
-	{ "N", "Notes", "Notes" },
+	{ "F", "Facetime", "Facetime" },
 	{ "I", "Insomnia", "Insomnia" },
+	{ "N", "Notes", "Notes" },
+	{ "P", "1Password", "1Password" },
 	{ "S", "System Settings", "System Settings" },
+	{ "T", "Transmission", "Transmission" },
 	{ "U", "Upwork", "Upwork" },
 }
 
@@ -52,7 +54,6 @@ for _, shortcut in ipairs(hyper2Shortcuts) do
 		hs.application.launchOrFocus(shortcut[3])
 	end)
 end
-
 
 -- for _, shortcut in ipairs(hyper3Shortcuts) do
 -- 	hs.hotkey.bind({ "cmd", "ctrl", "shift" }, shortcut[1], function()
