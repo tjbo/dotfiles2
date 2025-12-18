@@ -10,8 +10,6 @@ brew update
 
 # homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
-  docker
-  docker-compose
   entr
   fd
   fzf
@@ -42,18 +40,16 @@ formulae=(
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
   brave-browser
-  docker
-  duckduckgo
-  firefox
+  chatgpt
   font-hack
   google-chrome
-  google-chrome@dev
   hammerspoon
+  inkscape
   karabiner-elements
   kitty
-  slack
   transmission
   whatsapp
+  zight
 )
 
 # install formulae

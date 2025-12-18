@@ -1,14 +1,16 @@
 ---@diagnostic disable: undefined-global
 
 hyper1Shortcuts = {
-	{ "A", "DuckDuckGo", "DuckDuckGo", 13 },
+	{ "A", "ChatGPT", "ChatGPT", 9 },
 	{ "B", "Brave", "Brave Browser", 2 },
-	{ "C", "Chrome", "Google Chrome", 3 },
+	{ "C", "Chrome", "Google Chrome", 6 },
+	-- { "C", "", "", 9 },
 	-- { "D", "", "", 9 },
 	{ "E", "Email", "Mail", 14 },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
-	{ "G", "Google", "Google", 6 },
+	-- { "G", "Google", "Google", 6 },
 	-- { "H" , ""},
+	{ "I", "Inkscape", "Inkscape", 12 },
 	-- { "J" , ""},
 	{ "K", "Keys", "Karabiner-Elements", 15 },
 	{ "M", "Music", "YT Music", 11 },
@@ -29,7 +31,7 @@ hyper1Shortcuts = {
 -- for overlay apps, used with extra shift key
 hyper2Shortcuts = {
 	{ "C", "Contacts", "Contacts" },
-	{ "F", "Facetime", "Facetime" },
+	{ "F", "Finder", "Finder" },
 	{ "I", "Insomnia", "Insomnia" },
 	{ "N", "Notes", "Notes" },
 	{ "P", "1Password", "1Password" },
