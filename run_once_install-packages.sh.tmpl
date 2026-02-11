@@ -8,45 +8,12 @@ fi
 
 brew update
 
-formulae=(
-entr
-  fd
-  fzf
-  git
-  go
-  httpie 
-  insomnia
-  jless 
-  lazygit
-  lsd
-  node
-  netlify-cli
-  nvim
-  pipx
-  pure
-  prettier
-  ripgrep # used by nvim-telescope
-  stylua
-  tree
-  typescript
-  yarn
-  zsh
-  zsh-syntax-highlighting
-  zsh-vi-mode
-  zsh-autosuggestions
-)
-
-
-
-
-
 # homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
   entr
   fd
   fzf
   git
-  go
   lazygit
   lsd
   node
@@ -67,6 +34,7 @@ formulae=(
 # Add host-specific packages
 {{ if eq .chezmoi.hostname "Thomass-Mac-mini-2" -}}
 formulae+=(
+  go
   httpie 
   insomnia
   netlify-cli
