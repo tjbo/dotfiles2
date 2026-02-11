@@ -8,9 +8,7 @@ return {
 		elseif vim.api.nvim_get_mode().mode == "c" then
 			return true
 		else
-			local context = require("cmp.config.context")
-			-- keep command mode completion enabled when cursor is in a comment
-			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+			return false
 		end
 	end,
 	event = "InsertEnter",
