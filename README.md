@@ -1,14 +1,19 @@
+# How To Rebuild System For NVIM
 This is a repo for my dotfiles. 
 
 To install them on a brand new machine:
-`sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply tjbo`
 
-## Two Hyper Keys
+1 - install brew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+2 - install chezmoi: `brew install chezmoi`
+3 - add custom chezmoi configs: `chezmoi init git@github.com:tjbo/dotfiles2.git`
+
+
+# Two Hyper Keys
 - hyper1 - (apps) controls switching apps, spaces and OS windows 
 - hyper2 - (system) is used to control mac osx 
 (hyper 1 is right thumb super key)
 
-### 1 - Hyper Apps (Desktop / Spaces) 
+# 1 - Hyper Apps (Desktop / Spaces) 
 Each app is mapped to a desktop. And a hyper key. The hyperkeys are configured
 in hammerspoon. 
 
@@ -35,7 +40,7 @@ in hammerspoon.
 ToDo
 - hyper1 + i = inspector (for debugging)
 
-### Workflows
+# Workflows
 JSON Viewing = use jless in CLI
 
 ## ToDos
@@ -43,7 +48,6 @@ JSON Viewing = use jless in CLI
 - add quick fix to work flow
 - remember text objects 
 - look at lazy loading things better
-- switch fast mail to icloud
 - improve hammerspoon
 
 ## Mini.ai

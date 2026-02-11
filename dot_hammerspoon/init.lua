@@ -1,14 +1,15 @@
 ---@diagnostic disable: undefined-global
 
-hyper1Shortcuts = {
+local hyper1Shortcuts = {
 	{ "A", "ChatGPT", "ChatGPT", 9 },
 	{ "B", "Brave", "Brave Browser", 2 },
 	{ "C", "Chrome", "Google Chrome", 6 },
 	-- { "C", "", "", 9 },
 	-- { "D", "", "", 9 },
 	{ "E", "Email", "Mail", 14 },
+	{ "F", "Finder", "Finder" },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
-	-- { "G", "Google", "Google", 6 },
+	{ "G", "Google Gemini", "Google Gemini", 6 },
 	-- { "H" , ""},
 	{ "I", "Inkscape", "Inkscape", 12 },
 	-- { "J" , ""},
@@ -23,16 +24,17 @@ hyper1Shortcuts = {
 	{ "T", "Terminal", "kitty", 1 },
 	{ "V", "Preview", "Preview", 4 },
 	{ "W", "WhatsApp", "WhatsApp", 10 },
-	{ "X", "Xcode", "Xcode", 15 },
+	{ "X", "Grok", "Grok", 15 },
 	{ "Y", "YouTube", "YouTube", 8 },
 	{ "Z", "Zight", "Zight" },
 }
 
 -- for overlay apps, used with extra shift key
-hyper2Shortcuts = {
+local hyper2Shortcuts = {
 	{ "C", "Contacts", "Contacts" },
 	{ "F", "Finder", "Finder" },
 	{ "I", "Insomnia", "Insomnia" },
+	{ "L", "Logitech G HUB", "Logitech G HUB" },
 	{ "N", "Notes", "Notes" },
 	{ "P", "1Password", "1Password" },
 	{ "S", "System Settings", "System Settings" },
@@ -52,7 +54,7 @@ for _, shortcut in ipairs(hyper1Shortcuts) do
 end
 
 for _, shortcut in ipairs(hyper2Shortcuts) do
-	hs.hotkey.bind({ "ctrl", "cmd", "alt", "shift" }, shortcut[1], function()
+	hs.hotkey.bind({ "cmd", "shift", "ctrl" }, shortcut[1], function()
 		hs.application.launchOrFocus(shortcut[3])
 	end)
 end

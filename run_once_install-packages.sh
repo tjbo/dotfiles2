@@ -39,6 +39,7 @@ formulae=(
 
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
+  logitech-g-hub
   brave-browser
   chatgpt
   font-hack

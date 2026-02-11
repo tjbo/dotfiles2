@@ -97,6 +97,7 @@ return {
 			{ "<leader>7", "<cmd>Grapple select index=5<cr>", desc = "Select seventh tag" },
 			{ "<leader><leader>", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window" },
 			{ "<leader>hh", "<cmd>:buffer #<cr>", desc = "Go back to last buffer" },
+			{ "<leader>mm", "<cmd>ZenMode<cr>", desc = "Enter ZenMode" },
 			{ "<leader>ht", "<cmd>Grapple tag<cr>", desc = "Grapple tag" },
 			{ "<leader>hu", "<cmd>Grapple untag<cr>", desc = "Grapple untag" },
 			{ "<leader>hr", "<cmd>Grapple reset<cr>", desc = "Grapple reset the current scope" },

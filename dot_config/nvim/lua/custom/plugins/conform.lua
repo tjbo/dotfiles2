@@ -23,6 +23,7 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {},
 	opts = {
+
 		-- log_level = vim.log.levels.DEBUG,
 		notify_on_error = false,
 		format_on_save = function(bufnr)

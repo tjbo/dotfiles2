@@ -51,6 +51,9 @@ alias -- cdml='cd ~/Projects/moolahlist.com/'
 alias -- cdpp='cd ~/Projects/productopia/'
 alias -- cdppf='cd ~/Projects/productopia/functions'
 alias -- cdpr='cd ~/Projects/prototypable.io/'
+alias -- cdwd='cd ~/Projects/writing/dreams'
+alias -- cdwn='cd ~/Projects/writing/notes/'
+alias -- cdw='cd ~/Projects/writing/'
 
 # yarn
 alias -- yrb='yarn run build'
