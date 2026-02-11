@@ -47,15 +47,10 @@ formulae=(
   fzf
   git
   go
-  httpie 
-  insomnia
-  jless 
   lazygit
   lsd
   node
-  netlify-cli
   nvim
-  pipx
   pure
   prettier
   ripgrep # used by nvim-telescope
@@ -69,30 +64,35 @@ formulae=(
   zsh-autosuggestions
 )
 
-
 # Add host-specific packages
-{{ if eq .chezmoi.hostname "work-laptop" -}}
+{{ if eq .chezmoi.hostname "Thomass-Mac-mini-2" -}}
 formulae+=(
+  httpie 
   insomnia
   netlify-cli
+  pipx
+  jless 
 )
 {{ end -}}
 
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
-  logitech-g-hub
   brave-browser
-  chatgpt
   font-hack
   google-chrome
   hammerspoon
-  inkscape
   karabiner-elements
   kitty
-  transmission
   whatsapp
   zight
 )
+
+{{ if eq .chezmoi.hostname "Thomass-Mac-mini-2" -}}
+casks+=(
+  inkscape
+  transmission
+)
+{{ end -}}
 
 # install formulae
 for formula in "${formulae[@]}"; do
