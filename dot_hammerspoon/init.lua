@@ -5,7 +5,7 @@ local hyper1Shortcuts = {
 	{ "B", "Brave", "Brave Browser", 2 },
 	{ "C", "Chrome", "Google Chrome", 6 },
 	-- { "C", "", "", 9 },
-	-- { "D", "", "", 9 },
+	{ "D", "Desktop", "Desktop" },
 	{ "E", "Email", "Mail", 14 },
 	{ "F", "Finder", "Finder" },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
@@ -26,12 +26,13 @@ local hyper1Shortcuts = {
 	{ "W", "WhatsApp", "WhatsApp", 10 },
 	{ "X", "Grok", "Grok", 15 },
 	{ "Y", "YouTube", "YouTube", 8 },
-	{ "Z", "Zight", "Zight" },
+	{ "Z", "Zoom", "zoom.us" },
 }
 
 -- for overlay apps, used with extra shift key
 local hyper2Shortcuts = {
 	{ "C", "Contacts", "Contacts" },
+	{ "D", "Disk Utility", "Disk Utility" },
 	{ "F", "Finder", "Finder" },
 	{ "I", "Insomnia", "Insomnia" },
 	{ "L", "Logitech G HUB", "Logitech G HUB" },
@@ -40,6 +41,7 @@ local hyper2Shortcuts = {
 	{ "S", "System Settings", "System Settings" },
 	{ "T", "Transmission", "Transmission" },
 	{ "U", "Upwork", "Upwork" },
+	{ "Z", "Zight", "Zight" },
 }
 
 -- hyper3Shortcuts = {}
@@ -58,6 +60,11 @@ for _, shortcut in ipairs(hyper2Shortcuts) do
 		hs.application.launchOrFocus(shortcut[3])
 	end)
 end
+
+-- Bind Cmd + Alt + D to Toggle Show Desktop
+hs.hotkey.bind({ "ctrl", "cmd", "alt" }, "down", function()
+	hs.spaces.toggleShowDesktop()
+end)
 
 -- for _, shortcut in ipairs(hyper3Shortcuts) do
 -- 	hs.hotkey.bind({ "cmd", "ctrl", "shift" }, shortcut[1], function()
