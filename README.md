@@ -8,6 +8,7 @@ To install them on a brand new machine:
 3. install chezmoi: `brew install chezmoi`
 4. add custom chezmoi configs: `chezmoi init git@github.com:tjbo/dotfiles2.git`
 5. `chezmoi apply`
+6. add custom karabiner configs
 
 # Two Hyper Keys
 - hyper1 - (apps) controls switching apps, spaces and OS windows 
