@@ -6,7 +6,7 @@ To install them on a brand new machine:
 1 - install brew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 2 - install chezmoi: `brew install chezmoi`
 3 - add custom chezmoi configs: `chezmoi init git@github.com:tjbo/dotfiles2.git`
-
+4 - `chezmoi apply`
 
 # Two Hyper Keys
 - hyper1 - (apps) controls switching apps, spaces and OS windows 
