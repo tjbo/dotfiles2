@@ -1,6 +1,8 @@
 gui:
+  gocui:
+    captureSubprocessOutput: false
   showIcons: false 
-  sidePanelWidth: 0.25
+  sidePanelWidth: 0.4
   theme:
     selectedLineBgColor:
       - reverse
@@ -23,4 +25,3 @@ showCommandLog: false
 os:
   openCommand: 'nvim -d {{filename}}'
   editPreset: "nvim"
-
