@@ -26,11 +26,7 @@ alias -- ez='nvim ~/.local/share/chezmoi/dot_zshrc'
 alias -- eza='nvim ~/.local/share/chezmoi/dot_zsh_aliases'
 
 # edit vim files
-alias -- evb='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/bufferline.lua'
 alias -- ev='nvim ~/.local/share/chezmoi/dot_config/nvim/init.lua'
-alias -- evc='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/colorscheme.lua'
-alias -- evt='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/nvim-treesitter.lua'
-alias -- evw='nvim ~/.local/share/chezmoi/dot_config/nvim/lua/custom/plugins/which-key.lua'
 
 # edit hammerspoon
 alias -- eh='nvim ~/.local/share/chezmoi/dot_hammerspoon/init.lua'
