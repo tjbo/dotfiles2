@@ -39,6 +39,7 @@ vim.opt.backup = true
 vim.opt.re = 0
 
 vim.lsp.enable({
+	"go",
 	"luals",
 	"tailwindcss",
 })

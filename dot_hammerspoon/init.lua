@@ -8,7 +8,7 @@ local hyper1Shortcuts = {
 	{ "E", "Email", "Mail", 14 },
 	{ "F", "Finder", "Finder" },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
-	{ "G", "Google Gemini", "Google Gemini", 6 },
+	{ "G", "NVIDIA GeForce NOW", "NVIDIA GeForce NOW", 6 },
 	-- { "H" , ""},
 	{ "I", "Inkscape", "Inkscape", 12 },
 	-- { "J", "GeForce NOW", "GeForce NOW", 12 },
@@ -30,11 +30,12 @@ local hyper1Shortcuts = {
 -- for overlay apps, used with extra shift key
 local hyper2Shortcuts = {
 	{ "C", "Contacts", "Contacts" },
-	{ "D", "Disk Utility", "Disk Utility" },
+	{ "D", "Discord", "Discord" },
 	{ "F", "Finder", "Finder" },
 	{ "G", "Google Translate", "Google Translate" },
 	{ "K", "Keys", "Karabiner-Elements" },
 	{ "I", "Insomnia", "Insomnia" },
+	{ "M", "Metronome", "Tick", 11 },
 	{ "N", "Notes", "Notes" },
 	{ "P", "1Password", "1Password" },
 	{ "S", "System Settings", "System Settings" },

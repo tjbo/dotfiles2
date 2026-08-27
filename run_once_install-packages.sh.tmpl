@@ -10,17 +10,23 @@ brew update
 
 # homebrew formulae (CLI tools, libraries, etc.)
 formulae=(
+  gopls
   entr
   fd
   fzf
   git
+  go
+  luarocks
+  netlify-cli
+  httpie
   lazygit
   lsd
-  node
+  node@24
   nvim
   pure
   prettier
   ripgrep # used by nvim-telescope
+  aws-sam-cli
   stylua
   tree
   typescript
@@ -31,21 +37,9 @@ formulae=(
   zsh-autosuggestions
 )
 
-# Add host-specific packages
-{{ if eq .chezmoi.hostname "Thomass-Mac-mini-2" -}}
-formulae+=(
-  go
-  httpie 
-  luarocks
-  insomnia
-  netlify-cli
-  pipx
-  jless 
-)
-{{ end -}}
-
 # homebrew casks (GUI apps, fonts, etc.)
 casks=(
+  audacity
   brave-browser
   1password
   font-hack
@@ -53,12 +47,11 @@ casks=(
   hammerspoon
   inkscape
   http-server
-  netlify-cli
-  stripe/stripe-cli/strip
   karabiner-elements
   kitty
   nordvpn
   transmission
+  vlc
   whatsapp
   zight
 )
