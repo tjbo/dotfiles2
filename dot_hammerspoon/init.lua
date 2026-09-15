@@ -8,7 +8,7 @@ local hyper1Shortcuts = {
 	{ "E", "Email", "Mail", 14 },
 	{ "F", "Finder", "Finder" },
 	-- { "F" , ""}, controlled by mission control but goes to last space if we want to use finder
-	{ "G", "NVIDIA GeForce NOW", "NVIDIA GeForce NOW", 6 },
+	-- { "G" , ""},
 	-- { "H" , ""},
 	{ "I", "Inkscape", "Inkscape", 12 },
 	-- { "J", "GeForce NOW", "GeForce NOW", 12 },
@@ -39,7 +39,7 @@ local hyper2Shortcuts = {
 	{ "N", "Notes", "Notes" },
 	{ "P", "1Password", "1Password" },
 	{ "S", "System Settings", "System Settings" },
-	{ "T", "Transmission", "Transmission" },
+	{ "T", "Toggl Track", "Toggl Track" },
 	{ "U", "Upwork", "Upwork" },
 	{ "V", "NordVPN", "NordVPN" },
 	{ "Z", "Zight", "Zight" },
