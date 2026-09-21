@@ -51,6 +51,7 @@ alias -- cdppf='cd ~/Projects/productopia/functions'
 alias -- cdpr='cd ~/Projects/prototypable.io/'
 alias -- cdwd='cd ~/Projects/writing/dreams'
 alias -- cdwn='cd ~/Projects/writing/notes/'
+alias -- cds='cd ~/Projects/soberlivingjobs.com/'
 alias -- cdw='cd ~/Projects/writing/'
 
 # yarn

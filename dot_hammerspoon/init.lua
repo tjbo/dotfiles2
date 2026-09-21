@@ -49,7 +49,32 @@ local hyper2Shortcuts = {
 -- 0 goes to space 16 in mission control
 for _, shortcut in ipairs(hyper1Shortcuts) do
 	hs.hotkey.bind({ "ctrl", "cmd", "alt", "shift" }, shortcut[1], function()
-		hs.application.launchOrFocus(shortcut[3])
+		hs.spaces.closeMissionControl()
+
+		local app = hs.application.get(shortcut[3])
+		if app then
+			app:activate()
+		else
+			hs.application.launchOrFocus(shortcut[3])
+		end
+
+		local targetSpace = shortcut[4]
+		if targetSpace then
+			hs.timer.doAfter(0.5, function()
+				local windows = app:allWindows()
+
+				for _, window in ipairs(windows) do
+					if window:isStandard() then
+						local screen = window:screen()
+						local spaces = hs.spaces.spacesForScreen(screen)
+
+						if spaces[targetSpace] then
+							hs.spaces.moveWindowToSpace(window:id(), spaces[targetSpace])
+						end
+					end
+				end
+			end)
+		end
 	end)
 end
 
