@@ -18,13 +18,13 @@ local hyper1Shortcuts = {
 	{ "P", "Pages", "Pages", 4 },
 	-- { "Q", "" },
 	-- { "R", "Write", "WriteRoom" },
-	{ "S", "Safari", "Safari", 3 },
+	{ "S", "Safari", "Safari", 16 },
 	{ "T", "Terminal", "kitty", 1 },
 	{ "V", "Preview", "Preview", 4 },
 	{ "W", "WhatsApp", "WhatsApp", 10 },
-	{ "X", "Grok", "Grok", 15 },
+	-- { "X", "Grok", "Grok", 15 },
 	{ "Y", "YouTube", "YouTube", 8 },
-	{ "Z", "Zoom", "zoom.us" },
+	{ "Z", "Zoom", "zoom.us", 7 },
 }
 
 -- for overlay apps, used with extra shift key
